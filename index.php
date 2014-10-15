@@ -7,14 +7,14 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>PRODOM - Pagina de Login</title>
+	<title>ODONTOSISCARE - Pagina de Login</title>
 
 	<!-- CSS -->
 	
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/styles.css">
-	<link rel="shortcut icon" type="image/x-icon" href="imagens/PRODOM.ico"/>
+	<link rel="shortcut icon" type="image/x-icon" href="imagens/icone.ico"/>
 	
 </head>
 
