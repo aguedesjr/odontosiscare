@@ -14,6 +14,7 @@ require_once ("configs/conn.php");
     <script src="js/jquery.widget.min.js"></script> <!-- SCRIPT BASE -->
     <script src="js/jquery.mousewheel.js"></script> <!-- SCRIPT BASE -->
     <script src="js/metro.min.js"></script>         <!-- SCRIPT BASE -->
+    <script src="js/load-metro.js"></script>        <!-- SCRIPT BASE -->
     <script src="js/prettify/prettify.js"></script> <!-- SCRIPT BASE -->
     <script src="js/load-metro.js"></script>        <!-- Metro UI CSS JavaScript plugins -->
     <link href="css/metro-bootstrap.css" rel="stylesheet">            <!-- CSS BASE -->
