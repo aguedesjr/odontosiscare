@@ -4,6 +4,7 @@ require_once ("validalogin.php");
 
 //Requer conexão previa com o banco
 require_once ("configs/conn.php");
+
 ?>
 
 <!DOCTYPE html>
