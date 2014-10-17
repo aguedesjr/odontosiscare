@@ -11,7 +11,7 @@ if (isset($_GET["buscanome"])){
         $text = trim($_GET['buscanome']);
 }};
 
-$sql = "SELECT nome FROM pacientes WHERE nome LIKE '%$text%' ORDER BY nome ASC;";
+$sql = "SELECT id, nome FROM pacientes WHERE nome LIKE '%$text%' ORDER BY nome ASC;";
 $resultado = mysql_query($sql);
 
 //Formatação do JSON
