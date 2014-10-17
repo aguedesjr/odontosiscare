@@ -11,7 +11,7 @@ require_once ("configs/conn.php");
 <html>
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="imagens/icone.ico"/> <!-- ICONE DA PAGINA -->
-    <script src="js/jquery.min.js"></script>  <!-- SCRIPT BASE -->
+    <script src="js/jquery.min.js"></script>        <!-- SCRIPT BASE -->
     <script src="js/jquery.widget.min.js"></script> <!-- SCRIPT BASE -->
     <script src="js/jquery.mousewheel.js"></script> <!-- SCRIPT BASE -->
     <script src="js/metro.min.js"></script>         <!-- SCRIPT BASE -->
