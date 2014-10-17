@@ -44,27 +44,23 @@
                             <label>Nome</label>
                             <div class="input-control text" data-role="input-control">
                                 <input type="text" id="nome" name="nome" placeholder="Nome do Paciente">
-                                <button class="btn-clear" tabindex="-1"></button>
                             </div>
                             <table><tr>
                             <td bgcolor="#FDFDFD">
                                 <label>CPF</label>
                                 <div class="input-control text size2" data-role="input-control">
                                     <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Informe o CPF">
-                                    <button class="btn-clear" tabindex="-1"></button>
                                 </div>
                             </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                             <td bgcolor="#FDFDFD">
                                 <label>Data Nasc.</label>
                                 <div class="input-control text size2" data-role="input-control">
                                     <input type="text" id="data" name="data" placeholder="Data">
-                                    <button class="btn-clear" tabindex="-1"></button>
                                 </div></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                                 <td bgcolor="#FDFDFD">
                                 <label>Matricula</label>
                                 <div class="input-control text size3" data-role="input-control">
                                     <input type="text" id="matricula" name="matricula" placeholder="Matricula">
-                                    <button class="btn-clear" tabindex="-1"></button>
                                 </div></td>
                             </tr></table>
                             <table><tr>
@@ -72,14 +68,12 @@
                                     <label>Telefone</label>
                                     <div class="input-control text size3" data-role="input-control">
                                         <input type="text" id="tel" name="tel" placeholder="Telefone">
-                                        <button class="btn-clear" tabindex="-1"></button>
                                     </div>
                                 </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                                 <td bgcolor="#FDFDFD">
                                     <label>Celular</label>
                                     <div class="input-control text size3" data-role="input-control">
                                         <input type="text" id="cel" name="cel" placeholder="Celular">
-                                        <button class="btn-clear" tabindex="-1"></button>
                                     </div>
                                 </td> 
                             </tr></table>
@@ -95,34 +89,29 @@
                                 <label>CEP</label>
                                 <div class="input-control text size2" data-role="input-control">
                                     <input type="text" id="cep" name="cep" maxlength="9" placeholder="Informe o CEP">
-                                    <button class="btn-clear" tabindex="-1"></button>
                                 </div>
                             </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                             <td bgcolor="#FDFDFD">
                                 <label>Bairro</label>
                                 <div class="input-control text size4" data-role="input-control">
                                     <input type="text" id="bairro" name="bairro" placeholder="Bairro">
-                                    <button class="btn-clear" tabindex="-1"></button>
                                 </div></td>
                             </tr></table>
                             <label>Rua</label>
                             <div class="input-control text size6" data-role="input-control">
                                 <input type="text" id="rua" name="rua" placeholder="Nome da Rua / Logradouro">
-                                <button class="btn-clear" tabindex="-1"></button>
                             </div>
                             <table><tr>
                                 <td bgcolor="#FDFDFD">
                                     <label>Cidade</label>
                                     <div class="input-control text size5" data-role="input-control">
                                         <input type="text" id="cidade" name="cidade" placeholder="Cidade">
-                                        <button class="btn-clear" tabindex="-1"></button>
                                     </div>
                                 </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                                 <td bgcolor="#FDFDFD">
                                     <label>UF</label>
                                     <div class="input-control text size1" data-role="input-control">
                                         <input type="text" id="estado" name="estado" placeholder="Estado">
-                                        <button class="btn-clear" tabindex="-1"></button>
                                     </div>
                                 </td> 
                             </tr></table>
