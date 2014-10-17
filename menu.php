@@ -35,8 +35,7 @@
                                 <li><a href=""><i class="icon-cancel-2"></i>Excluir</a></li>
                             </ul>
                         </li>
-                        <li class="divider"></li>
-                        <li class="disabled"><a href="#">Disabled item</a></li>
+                        <li class=""><a href="logout.php"><i class="icon-exit"></i>Sair</a></li>
                     </ul>
                 </nav>
             </div>

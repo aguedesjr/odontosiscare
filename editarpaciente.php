@@ -1,9 +1,19 @@
 <!-- INCLUI O INICIO DO ARQUIVO -->
 <? include ("header.php"); ?>
 
-<script src="js/jquery-ui.min.js" type="text/javascript"></script> <!-- SCRIPT AUTOCOMPLETE -->
+<!-- <script src="js/jquery-ui.min.js" type="text/javascript"></script>  SCRIPT AUTOCOMPLETE -->
+<script src="js/jquery.maskedinput.js" type="text/javascript"></script> <!-- SCRIPT MASK -->
 
-    <script type="text/javascript">
+    <script>
+        $(function() {
+            jQuery(function($){
+                $("#buscacpf").mask("999.999.999-99");
+            });
+        });
+    </script>
+
+
+    <!--<script type="text/javascript">
             $(document).ready(function(){
             $.ajax({
                url: 'buscaDados.php',
@@ -19,7 +29,7 @@
                }
           });
     });
-    </script>
+    </script>-->
     <style>
         .ui-helper-hidden-accessible {display: none; }
     </style>
@@ -44,13 +54,13 @@
                 <div class="editpaciente">
                 <div class="tab-control" data-role="tab-control">
                     <ul class="tabs">
-                        <li class="active"><a href="#_page_1">Dados Pessoais</a></li>                        
+                        <li class="active"><a href="#_page_1">Buscar Dados</a></li>                        
                     </ul>
                     <div class="frames">
                         <div class="frame" id="_page_1">
-                            <label>Nome</label>
+                            <label>CPF</label>
                             <div class="input-control text" data-role="input-control">
-                                <input type="text" id="buscanome" name="buscanome" placeholder="Nome do Paciente">
+                                <input type="text" id="buscacpf" name="buscacpf" placeholder="CPF do Paciente">
                             </div>
                             
                             <center>

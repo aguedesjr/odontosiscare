@@ -14,6 +14,80 @@
                 $("#data").mask("99/99/9999");
             });
         });
+        function valida(form) {
+            if (form.nome.value=="") {
+                alert("Nome não informado!!");
+                document.getElementById("divnome").className = "input-control text error-state";
+                form.nome.focus();
+                return false;
+            }
+            
+            var str = document.getElementById("cpf").value;
+            
+            if (form.cpf.value=="") {
+                alert("CPF não informado!!");
+                document.getElementById("divcpf").className = "input-control text error-state";
+                form.cpf.focus();
+                return false;
+            } else {
+                str = str.replace('.','');
+                str = str.replace('.','');
+                str = str.replace('-','');
+                cpf = str;
+                var numeros, digitos, soma, i, resultado, digitos_iguais;
+                digitos_iguais = 1;
+                if (cpf.length < 11) {
+                      alert("CPF invalido!!");
+                      document.getElementById("divcpf").className = "input-control text error-state";
+                      form.cpf.focus();
+                      return false;
+                }
+                for (i = 0; i < cpf.length - 1; i++)
+                      if (cpf.charAt(i) != cpf.charAt(i + 1))
+                            {
+                            digitos_iguais = 0;
+                            //alert("CPF invalido!!");
+                            document.getElementById("divcpf").className = "input-control text error-state";
+                            form.cpf.focus();
+                            break;
+                            }
+                if (!digitos_iguais)
+                      {
+                      numeros = cpf.substring(0,9);
+                      digitos = cpf.substring(9);
+                      soma = 0;
+                      for (i = 10; i > 1; i--)
+                            soma += numeros.charAt(10 - i) * i;
+                      resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+                      if (resultado != digitos.charAt(0)) {
+                            alert("CPF invalido!!");
+                            document.getElementById("divcpf").className = "input-control text error-state";
+                            form.cpf.focus();
+                            return false;
+                      }
+                      numeros = cpf.substring(0,10);
+                      soma = 0;
+                      for (i = 11; i > 1; i--)
+                            soma += numeros.charAt(11 - i) * i;
+                      resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+                      if (resultado != digitos.charAt(1)){
+                            alert("CPF invalido!!");
+                            document.getElementById("divcpf").className = "input-control text error-state";
+                            form.cpf.focus();
+                            return false;
+                        }
+                      return true;
+                      }
+                else {
+                    alert("CPF invalido!!");
+                    document.getElementById("divcpf").className = "input-control text error-state";
+                    form.cpf.focus();
+                    return false;
+                }
+                
+            }
+       };
+        
     </script>
 
 <!-- INICIO DO ARQUIVO -->
@@ -32,7 +106,7 @@
             <? include ("menu.php"); ?>
             <div class="span1"></div>
             <div class="span10">
-                <form method="POST" action="salvapacientebd.php" name="salvapaciente">
+                <form method="POST" onsubmit="return valida(this);" action="salvapacientebd.php" name="salvapaciente">
                 <div class="cadpaciente">
                 <div class="tab-control" data-role="tab-control">
                     <ul class="tabs">
@@ -42,13 +116,13 @@
                     <div class="frames">
                         <div class="frame" id="_page_1">
                             <label>Nome</label>
-                            <div class="input-control text" data-role="input-control">
+                            <div class="input-control text" id="divnome" data-role="input-control">
                                 <input type="text" id="nome" name="nome" placeholder="Nome do Paciente">
                             </div>
                             <table><tr>
                             <td bgcolor="#FDFDFD">
                                 <label>CPF</label>
-                                <div class="input-control text size2" data-role="input-control">
+                                <div class="input-control text size2" id="divcpf" data-role="input-control">
                                     <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Informe o CPF">
                                 </div>
                             </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
