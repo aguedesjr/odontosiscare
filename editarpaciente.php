@@ -39,6 +39,10 @@ $datan = implode("/", array_reverse(explode("-", $result[1])));
                 return false;
             }
             
+            if (form.nome.value!="") {
+                document.getElementById("divnome").className = "input-control text";
+            }
+            
             var str = document.getElementById("cpf").value;
             
             if (form.cpf.value=="") {
@@ -93,6 +97,7 @@ $datan = implode("/", array_reverse(explode("-", $result[1])));
                             form.cpf.focus();
                             return false;
                         }
+                      document.getElementById("divcpf").className = "input-control text";
                       return true;
                       }
                 else {
@@ -123,7 +128,8 @@ $datan = implode("/", array_reverse(explode("-", $result[1])));
             <? include ("menu.php"); ?>
             <div class="span1"></div>
             <div class="span10">
-                <form method="POST" onsubmit="return valida(this);" action="salvapacientebd.php" name="salvapaciente">
+                <form method="POST" onsubmit="return valida(this);" action="editarpacientebd.php" name="editarpaciente">
+                <input type="hidden" id="id" name="id" value="<? echo $result[10]?>">
                 <div class="editpaciente">
                 <div class="tab-control" data-role="tab-control">
                     <ul class="tabs">

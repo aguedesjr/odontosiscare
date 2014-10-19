@@ -22,6 +22,10 @@
                 return false;
             }
             
+            if (form.nome.value!="") {
+                document.getElementById("divnome").className = "input-control text";
+            }
+            
             var str = document.getElementById("cpf").value;
             
             if (form.cpf.value=="") {
@@ -76,6 +80,7 @@
                             form.cpf.focus();
                             return false;
                         }
+                      document.getElementById("divcpf").className = "input-control text";
                       return true;
                       }
                 else {
@@ -106,7 +111,7 @@
             <? include ("menu.php"); ?>
             <div class="span1"></div>
             <div class="span10">
-                <form method="POST" onsubmit="return valida(this);" action="salvapacientebd.php" name="salvapaciente">
+                <form method="POST" onsubmit="return valida(this);" action="cadastrarpacientebd.php" name="salvapaciente">
                 <div class="cadpaciente">
                 <div class="tab-control" data-role="tab-control">
                     <ul class="tabs">
