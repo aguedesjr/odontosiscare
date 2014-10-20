@@ -186,14 +186,6 @@ else { ?>
                 $("#data").mask("99/99/9999");
             });
         });
-        function valida(form) {
-            if (confirm("Você tem certeza?") == true) {
-                return true;
-            }
-            else {
-                return false;
-            }  
-       };
         
     </script>
 
@@ -213,8 +205,7 @@ else { ?>
             <? include ("menu.php"); ?>
             <div class="span1"></div>
             <div class="span10">
-                <form method="POST" onsubmit="return valida(this);" action="excluirpacientebd.php" name="excluirpaciente">
-                <input type="hidden" id="id" name="id" value="<? echo $result[10]?>">
+                
                 <div class="excluipaciente">
                     <div class="panel">
                         <div class="panel-header bg-darkRed fg-white">
@@ -228,7 +219,7 @@ else { ?>
                         <a class="button bg-darkBlue fg-white" href="buscarpacienteexcluir.php">Voltar</a>
                     </center>
                 </div>
-                </form>
+                
             </div>
             <br>
             
