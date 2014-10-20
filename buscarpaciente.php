@@ -67,6 +67,7 @@
                             form.cpf.focus();
                             return false;
                         }
+                      document.getElementById("divcpf").className = "input-control text";
                       return true;
                       }
                 else {

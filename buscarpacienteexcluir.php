@@ -67,6 +67,7 @@
                             form.cpf.focus();
                             return false;
                         }
+                      document.getElementById("divcpf").className = "input-control text";
                       return true;
                       }
                 else {
@@ -119,7 +120,7 @@
             <? include ("menu.php"); ?>
             <div class="span1"></div>
             <div class="span10">
-                <form method="POST" onsubmit="return valida(this);" action="editarpaciente.php" name="editarpaciente">
+                <form method="POST" onsubmit="return valida(this);" action="excluirpaciente.php" name="editarpaciente">
                 <div class="buscapaciente">
                 <div class="tab-control" data-role="tab-control">
                     <ul class="tabs">
