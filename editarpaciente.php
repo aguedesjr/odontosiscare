@@ -13,6 +13,9 @@ if (isset($_GET["cpf"])){
 $sql = "SELECT matricula, data, endereco, cep, bairro, telefone, celular, cidade, estado, nome, id FROM pacientes WHERE cpf = '$cpf'";
 $resultado = mysql_query($sql);
 $result = mysql_fetch_array($resultado);
+$linhas = mysql_num_rows($resultado);
+
+if ($linhas > 0) { //Verifica se encontrou algum paciente
 
 $datan = implode("/", array_reverse(explode("-", $result[1])));
 
@@ -232,3 +235,82 @@ $datan = implode("/", array_reverse(explode("-", $result[1])));
 
 <!-- INCLUI O FIM DO ARQUIVO -->
 <? include ("footer.php"); ?>
+
+
+<?
+}
+else { ?>
+    
+    <!-- INCLUI O INICIO DO ARQUIVO -->
+    <? include ("header.php"); ?>
+    
+    <script src="js/cep.js" type="text/javascript"></script> <!-- SCRIPT CEP -->
+    <script src="js/jquery.maskedinput.js" type="text/javascript"></script> <!-- SCRIPT MASK -->
+
+    <script>
+        $(function() {
+            jQuery(function($){
+                $("#tel").mask("(99) 9999-9999");
+                $("#cel").mask("(99) 99999-9999");
+                $("#cep").mask("99999-999");
+                $("#cpf").mask("999.999.999-99");
+                $("#data").mask("99/99/9999");
+            });
+        });
+        function valida(form) {
+            if (confirm("Você tem certeza?") == true) {
+                return true;
+            }
+            else {
+                return false;
+            }  
+       };
+        
+    </script>
+
+<!-- INICIO DO ARQUIVO -->
+<body class="metro">
+    
+    <br>
+
+    <img src="imagens/photo1.jpg" />
+    
+    <center><img src="imagens/principal1.png" /></center>
+    <br><br>
+    
+    <div class="grid">
+        <div class="row">
+    
+            <? include ("menu.php"); ?>
+            <div class="span1"></div>
+            <div class="span10">
+                <form method="POST" onsubmit="return valida(this);" action="excluirpacientebd.php" name="excluirpaciente">
+                <input type="hidden" id="id" name="id" value="<? echo $result[10]?>">
+                <div class="excluipaciente">
+                    <div class="panel">
+                        <div class="panel-header bg-darkRed fg-white">
+                            <center>Erro ao buscar paciente!!!</center>
+                        </div>
+                        <div class="panel-content">
+                            Não foi possível localizar o paciente com o CPF informado. Favor verificar o CPF e tente novamente.
+                        </div>
+                    </div><br />
+                    <center>
+                        <a class="button bg-darkBlue fg-white" href="buscarpaciente.php">Voltar</a>
+                    </center>
+                </div>
+                </form>
+            </div>
+            <br>
+            
+        </div>
+    </div>
+
+</body>
+<!-- FIM DO ARQUIVO -->
+
+<!-- INCLUI O FIM DO ARQUIVO -->
+<? include ("footer.php"); ?>
+<?
+}
+?>

@@ -15,7 +15,7 @@ $resultado = mysql_query($sql);
 $result = mysql_fetch_array($resultado);
 $linhas = mysql_num_rows($resultado);
 
-if ($linhas > 0) { //Verifica se encontrou algum usuário
+if ($linhas > 0) { //Verifica se encontrou algum paciente
 
 $datan = implode("/", array_reverse(explode("-", $result[1])));
 
