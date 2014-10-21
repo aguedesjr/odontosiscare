@@ -155,10 +155,19 @@
                                         <input type="text" id="cel" name="cel" placeholder="Celular">
                                     </div>
                                 </td> 
-                            </tr></table>
+                            </tr></table><br />
                             <center>
-                                <input type="submit" class="button bg-darkBlue fg-white" value="Salvar" />
-                                <input type="reset" class="button bg-darkRed fg-white" value="Limpar" />
+                                
+                                <button type="submit" class="image-button primary image-left">
+                                    Salvar
+                                    <i class="icon-floppy on-left" style="top: -3px; left: 7px">
+                                    </i>
+                                </button>
+                                <button type="reset" class="image-button danger image-left">
+                                    Limpar
+                                    <i class="icon-spin on-left" style="top: -2px; left: 7px">
+                                    </i>
+                                </button>
                                 
                             </center>
                         </div>
@@ -193,10 +202,20 @@
                                         <input type="text" id="estado" name="estado" placeholder="Estado">
                                     </div>
                                 </td> 
-                            </tr></table>
+                            </tr></table><br />
                             <center>
-                                <input type="submit" class="button bg-darkBlue fg-white" value="Salvar" />
-                                <input type="reset" class="button bg-darkRed fg-white" value="Limpar" />
+                                
+                                <button type="submit" class="image-button primary image-left">
+                                    Salvar
+                                    <i class="icon-floppy on-left" style="top: -3px; left: 7px">
+                                    </i>
+                                </button>
+                                <button type="reset" class="image-button danger image-left">
+                                    Limpar
+                                    <i class="icon-spin on-left" style="top: -2px; left: 7px">
+                                    </i>
+                                </button>
+                                
                             </center>
                         </div>
                     </div>

@@ -131,11 +131,19 @@
                             <label>CPF</label>
                             <div class="input-control text" id="divcpf" data-role="input-control">
                                 <input type="text" id="cpf" name="cpf" placeholder="CPF do Paciente">
-                            </div>
-                            
+                            </div><br />
                             <center>
-                                <input type="submit" class="button bg-darkBlue fg-white" value="Enviar" />
-                                <input type="reset" class="button bg-darkRed fg-white" value="Limpar" />
+                                
+                                <button type="submit" class="image-button primary image-left">
+                                    Procurar
+                                    <i class="icon-search on-left" style="top: -3px; left: 7px">
+                                    </i>
+                                </button>
+                                <button type="reset" class="image-button danger image-left">
+                                    Limpar
+                                    <i class="icon-spin on-left" style="top: -2px; left: 7px">
+                                    </i>
+                                </button>
                                 
                             </center>
                         </div>
