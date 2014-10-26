@@ -11,6 +11,12 @@
             });
         });
         
+        //function zerar() {
+        //    document.getElementById("divcpf").className = "input-control text";
+        //    document.getElementById("excluirpaciente").reset();
+            
+        //}
+        
         function valida(form) {
                         
             var str = document.getElementById("cpf").value;
@@ -120,7 +126,7 @@
             <? include ("menu.php"); ?>
             <div class="span1"></div>
             <div class="span10">
-                <form method="POST" onsubmit="return valida(this);" action="excluirpaciente.php" name="editarpaciente">
+                <form method="POST" onsubmit="return valida(this);" action="excluirpaciente.php" name="excluirpaciente" id="excluirpaciente">
                 <div class="buscapaciente">
                 <div class="tab-control" data-role="tab-control">
                     <ul class="tabs">
@@ -139,11 +145,11 @@
                                     <i class="icon-search on-left" style="top: -3px; left: 7px">
                                     </i>
                                 </button>
-                                <button type="reset" class="image-button danger image-left">
+                                <!--<button type="button" onclick="zerar();" class="image-button danger image-left">
                                     Limpar
                                     <i class="icon-spin on-left" style="top: -2px; left: 7px">
                                     </i>
-                                </button>
+                                </button>-->
                                 
                             </center>
                         </div>

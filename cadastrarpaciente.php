@@ -14,6 +14,14 @@
                 $("#data").mask("99/99/9999");
             });
         });
+        
+        //function zerar() {
+          //  document.getElementById("divcpf").className = "input-control text";
+          //  document.getElementById("divnome").className = "input-control text";
+          //  document.getElementById("salvapaciente").reset();
+            
+        //}
+        
         function valida(form) {
             if (form.nome.value=="") {
                 alert("Nome não informado!!");
@@ -111,7 +119,7 @@
             <? include ("menu.php"); ?>
             <div class="span1"></div>
             <div class="span10">
-                <form method="POST" onsubmit="return valida(this);" action="cadastrarpacientebd.php" name="salvapaciente">
+                <form method="POST" onsubmit="return valida(this);" action="cadastrarpacientebd.php" name="salvapaciente" id="salvapaciente">
                 <div class="cadpaciente">
                 <div class="tab-control" data-role="tab-control">
                     <ul class="tabs">
@@ -163,11 +171,11 @@
                                     <i class="icon-floppy on-left" style="top: -3px; left: 7px">
                                     </i>
                                 </button>
-                                <button type="reset" class="image-button danger image-left">
+                                <!--<button type="button" onclick="zerar();" class="image-button danger image-left">
                                     Limpar
                                     <i class="icon-spin on-left" style="top: -2px; left: 7px">
                                     </i>
-                                </button>
+                                </button>-->
                                 
                             </center>
                         </div>
@@ -210,11 +218,11 @@
                                     <i class="icon-floppy on-left" style="top: -3px; left: 7px">
                                     </i>
                                 </button>
-                                <button type="reset" class="image-button danger image-left">
+                                <!--<button type="button" onclick="zerar();" class="image-button danger image-left">
                                     Limpar
                                     <i class="icon-spin on-left" style="top: -2px; left: 7px">
                                     </i>
-                                </button>
+                                </button>-->
                                 
                             </center>
                         </div>
