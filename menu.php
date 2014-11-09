@@ -15,7 +15,7 @@
                             <a class="dropdown-toggle" href="#"><i class="icon-user-3"></i>Profissional</a>
                             <ul class="dropdown-menu" data-role="dropdown">
                                 <li><a href="cadastrarprofissional.php"><i class="icon-file"></i>Cadastrar</a></li>
-                                <li><a href=""><i class="icon-pencil"></i>Editar</a></li>
+                                <li><a href="buscarprofissional.php"><i class="icon-pencil"></i>Editar</a></li>
                                 <li><a href=""><i class="icon-cancel-2"></i>Excluir</a></li>
                             </ul>
                         </li>
