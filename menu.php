@@ -4,7 +4,7 @@
                     <ul>
                         <li class="title"><center>Menu</center></li>
                         <li class=""><a href="inicio.php"><i class="icon-home"></i>Inicio</a></li>
-                        <li class="stick bg-brown"><a href=""><i class="icon-calendar"></i>Agenda</a></li>
+                        <li class="stick bg-brown"><a href="agenda.php"><i class="icon-calendar"></i>Agenda</a></li>
                         <li class="stick bg-red"><a class="dropdown-toggle" href="#"><i class="icon-user-2"></i>Pacientes</a>
                             <ul class="dropdown-menu" data-role="dropdown">
                                 <li><a href="cadastrarpaciente.php"><i class="icon-file"></i>Cadastrar</a></li>
