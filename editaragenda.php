@@ -1,7 +1,13 @@
 <!-- INCLUI O INICIO DO ARQUIVO -->
 <? 
 
-include ("header.php"); 
+include ("header.php");
+
+if (isset($_GET["id"])){
+    $id = utf8_decode($_GET["id"]);
+}else {if (isset($_POST["id"])){
+    $id = utf8_decode($_POST["id"]);
+}}; 
 
 if (isset($_GET["data"])){
         $data = utf8_decode($_GET["data"]);
@@ -15,12 +21,32 @@ if (isset($_GET["profissional"])){
         $profissional = utf8_decode($_POST["profissional"]);
 }};
 
+//Busca as informa��es da agenda
+$sqla = "SELECT codprof, nomepaciente, data, horario FROM agenda WHERE id = '$id'";
+$resultadoa = mysql_query($sqla);
+$resulta = mysql_fetch_array($resultadoa);
+
 //Busca o nome dos profissionais
 $sqlp = "SELECT nome FROM profissionais WHERE id = '$profissional'";
 $resultadop = mysql_query($sqlp);
 $resultp = mysql_fetch_array($resultadop);
 
 ?>
+
+<script src="js/metro-calendar.js"></script>
+<script src="js/metro-datepicker.js"></script>
+
+<script>
+$(function() {
+    $("#datepicker").datepicker({
+        //date: "2013-01-01", // set init date
+        format: "dd/mm/yyyy", // set output format
+        effect: "slide", // none, slide, fade
+        position: "bottom", // top or bottom,
+        locale: 'pt', // 'ru' or 'en', default is $.Metro.currentLocale (metro-locale.js)
+    });
+});
+</script>
 
 <!-- INICIO DO ARQUIVO -->
 <body class="metro">
@@ -45,24 +71,32 @@ $resultp = mysql_fetch_array($resultadop);
                         </ul>
                         <div class="frames">
                             <div class="frame" id="_page_1">
-                                <form method="POST" action="salvaragendabd.php" name="salvaagenda">
+                                <form method="POST" action="editaragendabd.php" name="editaragenda">
                                 <center><h4><? echo 'Dr(a). '.utf8_encode($resultp[0]);?></h4></center>
-                                <center><h5><? echo 'Data: '.utf8_encode($data);?></h5></center>
                                 
                                 <table>
                                     <tr>
                                         <td bgcolor="#FDFDFD">
                                             <label>Nome</label>
                                             <div class="input-control text size5" data-role="input-control">
-                                                <input type="text" id="nome" name="nome" placeholder="Nome">
+                                                <input type="text" id="nome" name="nome" placeholder="Nome" value="<? echo utf8_encode($resulta[1]);?>">
                                             </div>
+                                        </td>
+                                        <td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
+                                        <td bgcolor="#FDFDFD">
+                                                <label>Data</label>
+                                                <div class="input-control text" id="datepicker">
+                                                    <input type="text" name="data" placeholder="Data" value="<? echo $data;?>">
+                                                    <button class="btn-date"></button>
+                                                </div>
                                         </td>
                                         <td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                                         <td bgcolor="#FDFDFD">
                                             <label>Horario</label>
                                             <div class="input-control select">
                                             <select name="horario">
-                                                    <option value="">SELECIONE</option>
+                                                    <option value="<? echo $resulta[3];?>"><? echo $resulta[3];?></option>
+                                                    <option value="">---------</option>
                                                     <?
                                                     for ($i = 07; $i < 22; $i++) {
                                                         $num = $i > 23 ? $i - 24 : $i;
@@ -87,7 +121,7 @@ $resultp = mysql_fetch_array($resultadop);
                                     </button>
                                 </center>
                                 <input type="hidden" name="profissional" value="<? echo $profissional;?>">
-                                <input type="hidden" name="data" value="<? echo $data;?>">
+                                <input type="hidden" name="id" value="<? echo $id;?>">
                                 </form>    
                             </div>
                         </div>

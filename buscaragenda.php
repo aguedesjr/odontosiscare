@@ -66,16 +66,17 @@ $resultadoh = mysql_query($sqlh);
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <? while ($linhash = mysql_fetch_array($resultadoh, MYSQL_NUM)){ ?>
                                         <tr>
-                                            <td>Alguma coisa</td>
-                                            <td>Alguma coisa 1</td>
-                                            <td>Alguma coisa 2</td>
+                                            <td><? echo utf8_encode($linhash[0]);?></td>
+                                            <td><? echo $linhash[1];?></td>
+                                            <td>
+                                                <a class="button image-button primary image-left" name="editar" href="editaragenda.php?id=<? echo $linhash[2];?>&data=<? echo $data;?>&profissional=<? echo $profissional;?>"><i class="icon-pencil on-left" style="top: -3px; left: 7px"></i>Editar</a>
+                                                &nbsp;&nbsp;
+                                                <a class="button image-button danger image-left" name="excluir" href="excluiragendabd.php?id=id=<? echo $linhash[2];?>&data=<? echo $data;?>&profissional=<? echo $profissional;?>"><i class="icon-cancel-2 on-left" style="top: -3px; left: 7px"></i>Excluir</a>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>Alguma coisa 3</td>
-                                            <td>Alguma coisa 4</td>
-                                            <td>Alguma coisa 5</td>
-                                        </tr>
+                                        <?};?>
                                     </tbody>
                                 </table><br />
                                 
