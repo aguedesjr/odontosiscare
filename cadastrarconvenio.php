@@ -9,7 +9,7 @@
             jQuery(function($){
                 $("#tel").mask("(99) 9999-9999");
                 $("#cel").mask("(99) 99999-9999");
-                $("#com").mask("(99) 99999-9999");
+                $("#telcom").mask("(99) 99999-9999");
                 $("#cep").mask("99999-999");
                 $("#cnpj").mask("99.999.999/9999-99");
             });
@@ -133,22 +133,22 @@
             <div class="span1"></div>
             <div class="span10">
                 <form method="POST" onsubmit="return valida(this);" action="cadastrarconveniobd.php" name="salvaconvenio" id="salvaconvenio">
-                <div class="cadpaciente">
+                <div class="cadconvenio">
                 <div class="tab-control" data-role="tab-control">
                     <ul class="tabs">
-                        <li class="active"><a href="#_page_1">Dados Pessoais</a></li>
+                        <li class="active"><a href="#_page_1">Informações</a></li>
                         <li><a href="#_page_2">Endereço</a></li>
                     </ul>
                     <div class="frames">
                         <div class="frame" id="_page_1">
                             <label>Nome</label>
                             <div class="input-control text" id="divnome" data-role="input-control">
-                                <input type="text" id="nome" name="nome" placeholder="Nome do Paciente">
+                                <input type="text" id="nome" name="nome" placeholder="Nome do Convênio">
                             </div>
                             <table><tr>
                             <td bgcolor="#FDFDFD">
                                 <label>CNPJ</label>
-                                <div class="input-control text size2" id="divcnpj" data-role="input-control">
+                                <div class="input-control text size3" id="divcnpj" data-role="input-control">
                                     <input type="text" id="cnpj" name="cnpj" maxlength="14" placeholder="Informe o CNPJ">
                                 </div>
                             </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
@@ -160,7 +160,7 @@
                                 <td bgcolor="#FDFDFD">
                                 <label>Comercial</label>
                                 <div class="input-control text size3" data-role="input-control">
-                                    <input type="text" id="com" name="com" placeholder="Comercial">
+                                    <input type="text" id="telcom" name="telcom" placeholder="Comercial">
                                 </div></td>
                             </tr></table>
                             <table><tr>
