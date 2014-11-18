@@ -14,10 +14,7 @@ $(document).ready( function() {
                         $('#cidade').val(data.cidade);
                         $('#estado').val(data.estado);
  
-                        $('#numero').focus();
-                    }
-                    if(data.sucesso == 0){
-                    	alert("Teste");
+                        /*$('#numero').focus();*/
                     }
                 }
            });   

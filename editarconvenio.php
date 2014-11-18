@@ -145,8 +145,9 @@ $result = mysql_fetch_array($resultado);
             <? include ("menu.php"); ?>
             <div class="span1"></div>
             <div class="span10">
-                <form method="POST" onsubmit="return valida(this);" action="cadastrarconveniobd.php" name="salvaconvenio" id="salvaconvenio">
-                <div class="cadconvenio">
+                <form method="POST" onsubmit="return valida(this);" action="editarconveniobd.php" name="editarconvenio" id="editarconvenio">
+                    <input type="hidden" name="id" value="<?echo $result[11]?>">
+                <div class="editconvenio">
                 <div class="tab-control" data-role="tab-control">
                     <ul class="tabs">
                         <li class="active"><a href="#_page_1">Informações</a></li>
@@ -156,37 +157,37 @@ $result = mysql_fetch_array($resultado);
                         <div class="frame" id="_page_1">
                             <label>Nome</label>
                             <div class="input-control text" id="divnome" data-role="input-control">
-                                <input type="text" id="nome" name="nome" placeholder="Nome do Convênio">
+                                <input type="text" id="nome" name="nome" value="<?echo utf8_encode($result[0])?>" placeholder="Nome do Convênio">
                             </div>
                             <table><tr>
                             <td bgcolor="#FDFDFD">
                                 <label>CNPJ</label>
                                 <div class="input-control text size3" id="divcnpj" data-role="input-control">
-                                    <input type="text" id="cnpj" name="cnpj" maxlength="14" placeholder="Informe o CNPJ">
+                                    <input type="text" id="cnpj" name="cnpj" maxlength="14" value="<?echo utf8_encode($result[3])?>" placeholder="Informe o CNPJ">
                                 </div>
                             </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                             <td bgcolor="#FDFDFD">
                                 <label>Contato</label>
                                 <div class="input-control text size2" data-role="input-control">
-                                    <input type="text" id="contato" name="contato" placeholder="Contato">
+                                    <input type="text" id="contato" name="contato" value="<?echo utf8_encode($result[1])?>" placeholder="Contato">
                                 </div></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                                 <td bgcolor="#FDFDFD">
                                 <label>Comercial</label>
                                 <div class="input-control text size3" data-role="input-control">
-                                    <input type="text" id="telcom" name="telcom" placeholder="Comercial">
+                                    <input type="text" id="telcom" name="telcom" value="<?echo utf8_encode($result[2])?>" placeholder="Comercial">
                                 </div></td>
                             </tr></table>
                             <table><tr>
                                 <td bgcolor="#FDFDFD">
                                     <label>Telefone</label>
                                     <div class="input-control text size3" data-role="input-control">
-                                        <input type="text" id="tel" name="tel" placeholder="Telefone">
+                                        <input type="text" id="tel" name="tel" value="<?echo utf8_encode($result[7])?>" placeholder="Telefone">
                                     </div>
                                 </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                                 <td bgcolor="#FDFDFD">
                                     <label>Celular</label>
                                     <div class="input-control text size3" data-role="input-control">
-                                        <input type="text" id="cel" name="cel" placeholder="Celular">
+                                        <input type="text" id="cel" name="cel" value="<?echo utf8_encode($result[8])?>" placeholder="Celular">
                                     </div>
                                 </td> 
                             </tr></table><br />
@@ -210,30 +211,30 @@ $result = mysql_fetch_array($resultado);
                             <td bgcolor="#FDFDFD">
                                 <label>CEP</label>
                                 <div class="input-control text size2" data-role="input-control">
-                                    <input type="text" id="cep" name="cep" maxlength="9" placeholder="Informe o CEP">
+                                    <input type="text" id="cep" name="cep" maxlength="9" value="<?echo utf8_encode($result[5])?>" placeholder="Informe o CEP">
                                 </div>
                             </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                             <td bgcolor="#FDFDFD">
                                 <label>Bairro</label>
                                 <div class="input-control text size4" data-role="input-control">
-                                    <input type="text" id="bairro" name="bairro" placeholder="Bairro">
+                                    <input type="text" id="bairro" name="bairro" value="<?echo utf8_encode($result[6])?>" placeholder="Bairro">
                                 </div></td>
                             </tr></table>
                             <label>Rua</label>
                             <div class="input-control text size6" data-role="input-control">
-                                <input type="text" id="rua" name="rua" placeholder="Nome da Rua / Logradouro">
+                                <input type="text" id="rua" name="rua" value="<?echo utf8_encode($result[4])?>" placeholder="Nome da Rua / Logradouro">
                             </div>
                             <table><tr>
                                 <td bgcolor="#FDFDFD">
                                     <label>Cidade</label>
                                     <div class="input-control text size5" data-role="input-control">
-                                        <input type="text" id="cidade" name="cidade" placeholder="Cidade">
+                                        <input type="text" id="cidade" name="cidade" value="<?echo utf8_encode($result[9])?>" placeholder="Cidade">
                                     </div>
                                 </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                                 <td bgcolor="#FDFDFD">
                                     <label>UF</label>
                                     <div class="input-control text size1" data-role="input-control">
-                                        <input type="text" id="estado" name="estado" placeholder="Estado">
+                                        <input type="text" id="estado" name="estado" value="<?echo utf8_encode($result[10])?>" placeholder="Estado">
                                     </div>
                                 </td> 
                             </tr></table><br />
