@@ -37,7 +37,7 @@
                         </div>
                     </div><br />
                     <center>
-                        <a class="button bg-darkBlue fg-white" href="index.php">Login</a>
+                        <a class="button bg-darkBlue fg-white" href="index.php"><i class="icon-locked on-left" style="top: -3px; left: 7px"></i>Login</a>
                     </center>
                 </div>
             </div>
