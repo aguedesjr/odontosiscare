@@ -16,6 +16,9 @@ $(document).ready( function() {
  
                         $('#numero').focus();
                     }
+                    if(data.sucesso == 0){
+                    	alert("Teste");
+                    }
                 }
            });   
    return false;    

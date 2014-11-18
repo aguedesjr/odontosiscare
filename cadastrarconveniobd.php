@@ -68,7 +68,7 @@ if (isset($_GET["id"])){
   $id = $_POST["id"];
 }};
 
-// Vefifica o método a ser aplicado e define o sql para a execução do mesmo
+//Executa o comando para salvar no BD
 $sql = "INSERT INTO convenios (nome,contato,telcom,cnpj,endereco,cep,bairro,telefone,celular,cidade,estado) VALUES ('$nome','$contato','$telcom','$cnpj','$endereco','$cep','$bairro','$tel','$cel','$cidade','$estado');";
 
 // Executa o comando SQL
