@@ -147,7 +147,7 @@ $result = mysql_fetch_array($resultado);
             <div class="span10">
                 <form method="POST" onsubmit="return valida(this);" action="excluirconveniobd.php" name="excluirconvenio" id="excluirconvenio">
                     <input type="hidden" name="id" value="<?echo $result[11]?>">
-                <div class="editconvenio">
+                <div class="excluiconvenio">
                 <div class="tab-control" data-role="tab-control">
                     <ul class="tabs">
                         <li class="active"><a href="#_page_1">Informações</a></li>
