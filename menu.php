@@ -34,7 +34,7 @@
                             <ul class="dropdown-menu" data-role="dropdown">
                                 <li><a href="cadastrarconvenio.php"><i class="icon-file"></i>Cadastrar</a></li>
                                 <li><a href="buscarconvenio.php"><i class="icon-pencil"></i>Editar</a></li>
-                                <li><a href=""><i class="icon-cancel-2"></i>Excluir</a></li>
+                                <li><a href="buscarconvenioexcluir.php"><i class="icon-cancel-2"></i>Excluir</a></li>
                             </ul>
                         </li>
                         <li class="stick bg-blue">
