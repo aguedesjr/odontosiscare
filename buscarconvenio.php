@@ -8,7 +8,7 @@
         .ui-helper-hidden-accessible {display: none; }
     </style>
 
-<!-- BUSCA OS PROFISSIONAIS -->    
+<!-- BUSCA OS CONVENIOS -->    
 <?
 $sql = "SELECT nome, id FROM convenios";
 $resultado = mysql_query($sql);

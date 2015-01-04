@@ -40,10 +40,10 @@
                         <li class="stick bg-blue">
                             <a class="dropdown-toggle" href="#"><i class="icon-cabinet"></i>Fichas</a>
                             <ul class="dropdown-menu" data-role="dropdown">
-                                <li><a href=""><i class="icon-file"></i>Autorização</a></li>
-                                <li><a href=""><i class="icon-pencil"></i>Procedimentos</a></li>
-                                <li><a href=""><i class="icon-cancel-2"></i>Prontuário</a></li>
-                                <li><a href=""><i class="icon-cancel-2"></i>Médica</a></li>
+                                <li><a href="fichaautorizacao.php"><i class="icon-foursquare"></i>Autorização</a></li>
+                                <li><a href=""><i class="icon-copy"></i>Procedimentos</a></li>
+                                <li><a href=""><i class="icon-folder-2"></i>Prontuário</a></li>
+                                <li><a href=""><i class="icon-award-stroke"></i>Médica</a></li>
                             </ul>
                         </li>
                         <li class="stick bg-steel">
