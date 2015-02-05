@@ -60,10 +60,10 @@ define('FPDF_FONTPATH','fpdf16/font/');
 	//$sqld = "SELECT nome, valor, data FROM despesas WHERE user = '$usuario' AND data LIKE '%-$mes1-%';";
 	//$resultadod = mysql_query($sqld);
 	
-	if (isset($_GET["nome"])){
-  		$buscanome = utf8_decode($_GET["nome"]);
-	}else {if (isset($_POST["nome"])){
-  		$buscanome = utf8_decode($_POST["nome"]);
+	if (isset($_GET["cpf"])){
+  		$cpf = utf8_decode($_GET["cpf"]);
+	}else {if (isset($_POST["cpf"])){
+  		$cpf = utf8_decode($_POST["cpf"]);
 	}};
 	
 	if (isset($_GET["data"])){
@@ -330,7 +330,7 @@ define('FPDF_FONTPATH','fpdf16/font/');
   		$obs = $_POST["obs"];
 	}};
 	
-	$sql = "SELECT data, matricula, cpf, endereco, bairro, cep, telefone, celular, id FROM pacientes WHERE nome = '$buscanome';";
+	$sql = "SELECT data, matricula, nome, endereco, bairro, cep, telefone, celular, id FROM pacientes WHERE cpf = '$cpf';";
 	$resultado = mysql_query($sql);
 	$result = mysql_fetch_array($resultado);
 	
@@ -446,12 +446,12 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->Cell(50,10,utf8_decode('Código: ').$resultc[0],0,0);
     $pdf->Ln(7);
     $pdf->Cell(1);
-    $pdf->Cell(50,10,'Nome: '.$buscanome,0,0);
+    $pdf->Cell(50,10,'Nome: '.$result[2],0,0);
     $pdf->Cell(50);
     $pdf->Cell(50,10,'Data de Nasc.: '.$datan,0,0);
     $pdf->SetX(149);
     $pdf->Cell(1);
-    $pdf->Cell(50,10,'Nome: '.$buscanome,0,0);
+    $pdf->Cell(50,10,'Nome: '.$result[2],0,0);
     $pdf->Cell(50);
     $pdf->Cell(50,10,'Data de Nasc.: '.$datan,0,0);
     $pdf->Ln(7);
@@ -464,14 +464,14 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->Cell(20);
     $pdf->Cell(40,10,utf8_decode('Matricula: ').$result[1],0,0);
     $pdf->Cell(1);
-    $pdf->Cell(50,10,utf8_decode('CPF: ').$result[2],0,0);
+    $pdf->Cell(50,10,utf8_decode('CPF: ').$cpf,0,0);
     $pdf->SetX(149);
     $pdf->Cell(1);
     $pdf->Cell(45,10,utf8_decode('Convênio: ').$resultcon[0],0,0);
     $pdf->Cell(20);
     $pdf->Cell(40,10,utf8_decode('Matricula: ').$result[1],0,0);
     $pdf->Cell(1);
-    $pdf->Cell(50,10,utf8_decode('CPF: ').$result[2],0,0);
+    $pdf->Cell(50,10,utf8_decode('CPF: ').$cpf,0,0);
     $pdf->Ln(7);
     //-----------------------------------------------------------------------------------------------
     
