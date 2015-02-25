@@ -14,15 +14,15 @@
         //}
         
         function valida(form) {
-            if (form.cpf.value=="") {
-                alert("CPF não informado!!");
-                document.getElementById("divcpf").className = "input-control text size2 error-state";
-                form.cpf.focus();
+            if (form.codigo.value=="") {
+                alert("Codigo não informado!!");
+                document.getElementById("divcodigo").className = "input-control text size2 error-state";
+                form.codigo.focus();
                 return false;
             }
             
-            if (form.cpf.value!="") {
-                document.getElementById("divcpf").className = "input-control text size2";
+            if (form.codigo.value!="") {
+                document.getElementById("divcodigo").className = "input-control text size2";
             }
         };
         
@@ -31,13 +31,13 @@
     <script>
         $(function() {
             
-            jQuery(function($){
-                $("#cpf").mask("999.999.999-99");
-            });
+            //jQuery(function($){
+                //$("#cpf").mask("999.999.999-99");
+            //});
             
-            $('#cpf').change(function(){
+            $('#codigo').change(function(){
                 if( $(this).val() ) {                   
-                    $.getJSON('getnome.php?search=',{cpf: $(this).val(), ajax: 'true'}, function(j){ 
+                    $.getJSON('getnome.php?search=',{codigo: $(this).val(), ajax: 'true'}, function(j){ 
                         for (var i = 0; i < j.length; i++) {
                             $("input[name='nome']").val(j[i].nome);
                         }
@@ -390,9 +390,9 @@ $resultadop = mysql_query($sqlp);
                     </ul>
                     <div class="frames">
                         <div class="frame" id="_page_1">
-                            <label>CPF</label>
-                            <div class="input-control text size2" id="divcpf" data-role="input-control">
-                                <input type="text" id="cpf" name="cpf" placeholder="CPF do Paciente">
+                            <label>Codigo</label>
+                            <div class="input-control text size2" id="divcodigo" data-role="input-control">
+                                <input type="text" id="codigo" name="codigo" placeholder="Codigo do Paciente">
                             </div>
                             <label>Nome</label>
                             <div class="input-control text" data-role="input-control">

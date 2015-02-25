@@ -6,8 +6,8 @@ require_once ("validalogin.php");
 require_once ("configs/conn.php");
 
 //$text = trim($_GET['convenio']);
-$text = mysql_real_escape_string($_GET['cpf']);
-$sql = "SELECT nome FROM pacientes WHERE cpf = '$text';";
+$text = mysql_real_escape_string($_GET['codigo']);
+$sql = "SELECT nome FROM pacientes WHERE codigo = '$text';";
 $resultado = mysql_query($sql);
 
 $cod = array();

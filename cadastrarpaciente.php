@@ -36,12 +36,13 @@
             
             var str = document.getElementById("cpf").value;
             
-            if (form.cpf.value=="") {
-                alert("CPF não informado!!");
-                document.getElementById("divcpf").className = "input-control text error-state";
-                form.cpf.focus();
-                return false;
-            } else {
+            //if (form.cpf.value=="") {
+                //alert("CPF não informado!!");
+                //document.getElementById("divcpf").className = "input-control text error-state";
+                //form.cpf.focus();
+                //return false;
+            //} 
+            if (form.cpf.value!="") {
                 str = str.replace('.','');
                 str = str.replace('.','');
                 str = str.replace('-','');
@@ -102,6 +103,18 @@
        };
         
     </script>
+    
+    <?
+    $aux1 = date("Ymd");
+    $aux2 = rand(10,99);
+    
+    $sqlc = "SELECT MAX(id) FROM pacientes;";
+    $resultadoc = mysql_query($sqlc);
+    $resultc = mysql_fetch_array($resultadoc);
+    
+    $cod = $aux1.($resultc[0]+1).$aux2;
+    
+    ?>
 
 <!-- INICIO DO ARQUIVO -->
 <body class="metro">
@@ -128,6 +141,10 @@
                     </ul>
                     <div class="frames">
                         <div class="frame" id="_page_1">
+                            <label>Código</label>
+                            <div class="input-control text size2" id="cod" data-role="input-control">
+                                <input type="text" id="codigo" readonly="readonly" name="codigo" value="<?echo $cod;?>">
+                            </div>
                             <label>Nome</label>
                             <div class="input-control text" id="divnome" data-role="input-control">
                                 <input type="text" id="nome" name="nome" placeholder="Nome do Paciente">

@@ -81,8 +81,13 @@ if (isset($_GET["id"])){
 }else {if (isset($_POST["id"])){
   $id = $_POST["id"];
 }};
+if (isset($_GET["codigo"])){
+  $codigo = $_GET["codigo"];
+}else {if (isset($_POST["codigo"])){
+  $codigo = $_POST["codigo"];
+}};
 
-$sql = "INSERT INTO pacientes (nome,matricula,data,cpf,endereco,cep,bairro,telefone,celular,cidade,estado) VALUES ('$nome','$matricula','$data','$cpf','$endereco','$cep','$bairro','$tel','$cel','$cidade','$estado');";
+$sql = "INSERT INTO pacientes (nome,matricula,data,cpf,endereco,cep,bairro,telefone,celular,cidade,estado,codigo) VALUES ('$nome','$matricula','$data','$cpf','$endereco','$cep','$bairro','$tel','$cel','$cidade','$estado','$codigo');";
 
 // Executa o comando SQL
 mysql_query($sql);

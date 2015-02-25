@@ -9287,6 +9287,120 @@ a {
   transform: rotate(-90deg);
 }
 
+.metro .fichamedica {
+  padding: 20px 40px 20px 60px;
+  border: 1px #ccc solid;
+  position: relative;
+  margin: 0 0 10px 0;
+  background-color: #fdfdfd !important;
+  min-height: 100px;
+}
+.metro .fichamedica:before,
+.metro .fichamedica:after {
+  display: table;
+  content: "";
+}
+.metro .fichamedica:after {
+  clear: both;
+}
+.metro .fichamedica:before {
+  position: absolute;
+  content: "Ficha Médica";
+  left: -25px;
+  top: 50px;
+  color: #999999 !important;
+  margin: 5px 10px;
+  font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.02em;
+  color: #000000;
+  font-size: 1.2rem; /*tamanho da fonte do texto lateral*/
+  line-height: 1.4rem;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.metro .fichaprontuario {
+  padding: 20px 40px 20px 60px;
+  border: 1px #ccc solid;
+  position: relative;
+  margin: 0 0 10px 0;
+  background-color: #fdfdfd !important;
+  min-height: 100px;
+}
+.metro .fichaprontuario:before,
+.metro .fichaprontuario:after {
+  display: table;
+  content: "";
+}
+.metro .fichaprontuario:after {
+  clear: both;
+}
+.metro .fichaprontuario:before {
+  position: absolute;
+  content: "Prontuário Odontológico";
+  left: -65px;
+  top: 90px;
+  color: #999999 !important;
+  margin: 5px 10px;
+  font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.02em;
+  color: #000000;
+  font-size: 1.2rem; /*tamanho da fonte do texto lateral*/
+  line-height: 1.4rem;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.metro .fichaprocedimento {
+  padding: 20px 40px 20px 60px;
+  border: 1px #ccc solid;
+  position: relative;
+  margin: 0 0 10px 0;
+  background-color: #fdfdfd !important;
+  min-height: 100px;
+}
+.metro .fichaprocedimento:before,
+.metro .fichaprocedimento:after {
+  display: table;
+  content: "";
+}
+.metro .fichaprocedimento:after {
+  clear: both;
+}
+.metro .fichaprocedimento:before {
+  position: absolute;
+  content: "Ficha de Procedimento";
+  left: -50px;
+  top: 75px;
+  color: #999999 !important;
+  margin: 5px 10px;
+  font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.02em;
+  color: #000000;
+  font-size: 1.2rem; /*tamanho da fonte do texto lateral*/
+  line-height: 1.4rem;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
 .metro code,
 .metro .code {
   font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
