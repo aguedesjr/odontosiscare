@@ -3,6 +3,17 @@
 
 <? $login = $_SESSION['login']; ?>
 
+<<style type="text/css">
+<!--
+	body {
+		background-image: url("imagens/Wallpaper1.jpg");
+		background-repeat: no-repeat;
+		background-position: 500px 370px;
+		/*width: 40px;*/
+	}
+-->
+</style>
+
 <!-- INICIO DO ARQUIVO -->
 <body class="metro">
     
@@ -20,8 +31,9 @@
             <? include ("menu.php"); ?>
             
             <br>
-            <div class="span5"></div>
-            <? echo ($login); ?>
+            <div class="span2"></div>
+            <!-- <img src="imagens/Wallpaper.jpg" width="700" /> -->
+           
             
         </div>
     </div>

@@ -22,11 +22,13 @@
     </script>
     
 <?
+
 $sql = "SELECT nome, id FROM convenios";
 $resultado = mysql_query($sql);
 
 $sqlp = "SELECT nome, id FROM profissionais WHERE tipo = 'CRO'";
 $resultadop = mysql_query($sqlp);
+
 ?>
 
 <!-- INICIO DO ARQUIVO -->

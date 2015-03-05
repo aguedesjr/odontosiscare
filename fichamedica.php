@@ -1,9 +1,6 @@
 <!-- INCLUI O INICIO DO ARQUIVO -->
 <? include ("header.php"); ?>
 
-<script src="js/cep.js" type="text/javascript"></script> <!-- SCRIPT CEP -->
-<script src="js/jquery.maskedinput.js" type="text/javascript"></script> <!-- SCRIPT MASK -->
-
     <script>
                 
         //function zerar() {
@@ -35,50 +32,6 @@
                 //$("#tel").mask("(99) 9999-9999");
             //});
             
-            $("#buscarPaciente").on('click', function(){
-                            $.Dialog({
-                                overlay: true,
-                                shadow: true,
-                                flat: true,
-                                draggable: true,
-                                icon: '',
-                                title: 'Buscar Paciente',
-                                content: '',
-                                padding: 200,
-                                onShow: function(_dialog){
-                                    var content =
-                                            '<!-- TABELA COM OS HORÁRIOS AGENDADOS -->' +
-                                
-                                            '<table class="table striped" id="dataTables-1">' +
-                                                '<thead>' +
-                                                    '<tr>' +
-                                                        '<th bgcolor="#FDFDFD" align="left">Código</th>' +
-                                                        '<th bgcolor="#FDFDFD" align="left">Nome</th>' +
-                                                    '</tr>' +
-                                                '</thead>' +
-                                                '<tbody>' +
-                                                '</tbody>' +
-                                                '<tfoot>' +
-                                                '</tfoot>' +
-                                            '</table><br />' +
-                                            
-                                            '<!-- FIM DA TABELA HORÁRIOS AGENDADOS -->';
-                                            
-                                    $.Dialog.title("Buscar Paciente");
-                                    $.Dialog.content(content);
-                                }
-                            });
-                        });
-                        
-            $('#dataTables-1').dataTable( {
-                        "bProcessing": true,
-                        "sAjaxSource": "getpacientes.php",
-                        "aoColumns": [
-                            { "mData": "codigo" },
-                            { "mData": "nome" }
-                        ]
-                    } );
-            
             $('#codigo').change(function(){
                 if( $(this).val() ) {                   
                     $.getJSON('getnome.php?search=',{codigo: $(this).val(), ajax: 'true'}, function(j){ 
@@ -105,6 +58,18 @@ $resultado = mysql_query($sql);
 
 $sqlp = "SELECT nome, id FROM profissionais WHERE tipo = 'CRM'";
 $resultadop = mysql_query($sqlp);
+
+//Recebe as informacoes buscadas na busca de pacientes
+
+if (isset($_GET["codigo"])){
+	$codigo = utf8_decode($_GET["codigo"]);
+}else {if (isset($_POST["codigo"])){
+	$codigo = utf8_decode($_POST["codigo"]);
+}};
+
+$sqlpac = "SELECT nome FROM pacientes WHERE codigo = '$codigo'";
+$resultadopac = mysql_query($sqlpac);
+$resultpac = mysql_fetch_array($resultadopac);
 ?>
 
 <!-- INICIO DO ARQUIVO -->
@@ -135,20 +100,16 @@ $resultadop = mysql_query($sqlp);
                                  <table><tr>
                                  <td bgcolor="#FDFDFD">
                                     <div class="input-control text size2" id="divcodigo" data-role="input-control">
-                                        <input type="text" id="codigo" name="codigo" placeholder="Codigo do Paciente">
+                                        <input type="text" id="codigo" name="codigo" placeholder="Codigo do Paciente" value="<? echo $codigo?>">
                                     </div>
                                 </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                                 <td bgcolor="#FDFDFD">
-                                    <button id="buscarPaciente" class="image-button primary image-left">
-                                        Buscar
-                                        <i class="icon-search on-left" style="top: -3px; left: 7px">
-                                        </i>
-                                    </button>
+                                    <a class="button image-button primary image-left" name="buscarPaciente" href="buscarpacientemedico.php"><i class="icon-search on-left" style="top: -3px; left: 7px"></i>Buscar</a>
                                 </td> 
                             </tr></table>
                             <label>Nome</label>
                             <div class="input-control text" data-role="input-control">
-                                <input type="text" id="nome" name="nome" disabled="disabled" placeholder="Nome do Paciente">
+                                <input type="text" id="nome" name="nome" disabled="disabled" value="<? echo $resultpac[0]?>" placeholder="Nome do Paciente">
                             </div>
                             <table><tr>
                             <td bgcolor="#FDFDFD">
