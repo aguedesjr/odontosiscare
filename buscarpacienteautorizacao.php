@@ -71,7 +71,7 @@ $resultadop = mysql_query($sqlp);
 							        		while ($row = mysql_fetch_array($resultadop)) {
 							        	?>
 							        	<tr>
-							        		<td><a  href="fichaprontuario.php?codigopront=<? echo $row[1];?>"><? echo $row[1];?></a></td>
+							        		<td><a  href="fichaautorizacao.php?codigoaut=<? echo $row[1];?>"><? echo $row[1];?></a></td>
 							        		<td><? echo utf8_encode($row[0]);?></td>
 							        	</tr>
 							        	<?}?>

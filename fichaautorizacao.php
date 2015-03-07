@@ -364,6 +364,18 @@ $resultado = mysql_query($sql);
 
 $sqlp = "SELECT nome, id FROM profissionais WHERE tipo = 'CRO'";
 $resultadop = mysql_query($sqlp);
+
+//Recebe as informacoes buscadas na busca de pacientes
+
+if (isset($_GET["codigoaut"])){
+	$codigo = utf8_decode($_GET["codigoaut"]);
+}else {if (isset($_POST["codigoaut"])){
+	$codigo = utf8_decode($_POST["codigoaut"]);
+}};
+
+$sqlpac = "SELECT nome FROM pacientes WHERE codigo = '$codigo'";
+$resultadopac = mysql_query($sqlpac);
+$resultpac = mysql_fetch_array($resultadopac);
 ?>
 
 <!-- INICIO DO ARQUIVO -->
@@ -391,12 +403,19 @@ $resultadop = mysql_query($sqlp);
                     <div class="frames">
                         <div class="frame" id="_page_1">
                             <label>Codigo</label>
+                            <table><tr>
+                                 <td bgcolor="#FDFDFD">
                             <div class="input-control text size2" id="divcodigo" data-role="input-control">
-                                <input type="text" id="codigo" name="codigo" placeholder="Codigo do Paciente">
+                                <input type="text" id="codigo" name="codigo" placeholder="Codigo do Paciente" value="<? echo $codigo?>">
                             </div>
+                            </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
+                            <td bgcolor="#FDFDFD">
+                                    <a class="button image-button primary image-left" name="buscarPaciente" href="buscarpacienteautorizacao.php"><i class="icon-search on-left" style="top: -3px; left: 7px"></i>Buscar</a>
+                                </td> 
+                            </tr></table>
                             <label>Nome</label>
                             <div class="input-control text" data-role="input-control">
-                                <input type="text" id="nome" name="nome" disabled="disabled" placeholder="Nome do Paciente">
+                                <input type="text" id="nome" name="nome" disabled="disabled" value="<? echo $resultpac[0]?>" placeholder="Nome do Paciente">
                             </div>
                             <table><tr>
                             <td bgcolor="#FDFDFD">
