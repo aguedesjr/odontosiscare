@@ -5,10 +5,44 @@
 <script src="js/jquery.maskedinput.js" type="text/javascript"></script> <!-- SCRIPT MASK -->
     
     <script>
+                
+        //function zerar() {
+          //  document.getElementById("divcpf").className = "input-control text";
+          //  document.getElementById("divnome").className = "input-control text";
+          //  document.getElementById("salvapaciente").reset();
+            
+        //}
+        
+        function valida(form) {
+            if (form.codigo.value=="") {
+                alert("Codigo não informado!!");
+                document.getElementById("divcodigo").className = "input-control text size2 error-state";
+                form.codigo.focus();
+                return false;
+            }
+            
+            if (form.codigo.value!="") {
+                document.getElementById("divcodigo").className = "input-control text size2";
+            }
+        };
+        
+    </script>
+    
+    <script>
         $(function() {
             
             jQuery(function($){
                 $("#tel").mask("(99) 9999-9999");
+            });
+
+            $('#codigo').change(function(){
+                if( $(this).val() ) {                   
+                    $.getJSON('getnome.php?search=',{codigo: $(this).val(), ajax: 'true'}, function(j){ 
+                        for (var i = 0; i < j.length; i++) {
+                            $("input[name='nome']").val(j[i].nome);
+                        }
+                    });
+                }
             });
             
             $("#datepicker").datepicker({
@@ -29,6 +63,18 @@ $resultado = mysql_query($sql);
 $sqlp = "SELECT nome, id FROM profissionais WHERE tipo = 'CRO'";
 $resultadop = mysql_query($sqlp);
 
+//Recebe as informacoes buscadas na busca de pacientes
+
+if (isset($_GET["codigopront"])){
+	$codigo = utf8_decode($_GET["codigopront"]);
+}else {if (isset($_POST["codigopront"])){
+	$codigo = utf8_decode($_POST["codigopront"]);
+}};
+
+$sqlpac = "SELECT nome FROM pacientes WHERE codigo = '$codigo'";
+$resultadopac = mysql_query($sqlpac);
+$resultpac = mysql_fetch_array($resultadopac);
+
 ?>
 
 <!-- INICIO DO ARQUIVO -->
@@ -47,7 +93,7 @@ $resultadop = mysql_query($sqlp);
             <? include ("menu.php"); ?>
             <div class="span1"></div>
             <div class="span10">
-                <form method="POST" action="salvapront.php" name="salvaprontuario" id="salvaprontuario">
+                <form method="POST" onsubmit="return valida(this);" action="salvapront.php" name="salvaprontuario" id="salvaprontuario">
                 <div class="fichaprontuario">
                 <div class="tab-control" data-role="tab-control">
                     <ul class="tabs">
@@ -55,9 +101,20 @@ $resultadop = mysql_query($sqlp);
                     </ul>
                     <div class="frames">
                         <div class="frame" id="_page_1">
+                        	<label>Codigo</label>
+                                 <table><tr>
+                                 <td bgcolor="#FDFDFD">
+                                    <div class="input-control text size2" id="divcodigo" data-role="input-control">
+                                        <input type="text" id="codigo" name="codigo" placeholder="Codigo do Paciente" value="<? echo $codigo?>">
+                                    </div>
+                                </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
+                                <td bgcolor="#FDFDFD">
+                                    <a class="button image-button primary image-left" name="buscarPaciente" href="buscarpacienteprontuario.php"><i class="icon-search on-left" style="top: -3px; left: 7px"></i>Buscar</a>
+                                </td> 
+                            </tr></table>
                             <label>Nome</label>
                             <div class="input-control text" data-role="input-control">
-                                <input type="text" id="nome" name="nome" placeholder="Nome do Paciente">
+                                <input type="text" id="nome" name="nome" disabled="disabled" value="<? echo $resultpac[0]?>" placeholder="Nome do Paciente">
                             </div>
                             <table><tr>
                             <td bgcolor="#FDFDFD">
@@ -92,6 +149,7 @@ $resultadop = mysql_query($sqlp);
                                 <br /></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                             </tr>
                             </table>
+                            <!-- 
                             <label>Endereço</label>
                             <div class="input-control text" data-role="input-control">
                                 <input type="text" name="endereco" placeholder="Endereço">
@@ -113,7 +171,7 @@ $resultadop = mysql_query($sqlp);
                                     </td>
                                 </tr>
                             </table>
-                            
+                             -->
                             <center>
                                 
                                 <button type="submit" class="image-button primary image-left">

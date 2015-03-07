@@ -59,10 +59,10 @@ define('FPDF_FONTPATH','fpdf16/font/');
 	
 	$opcao = 'Data:__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________                                                                                             _____ de __________________ de 20_____                  __________________________________________                     Ass. Paciente ou Res. Legal';
 	
-	if (isset($_GET["nome"])){
-  		$nome = utf8_decode($_GET["nome"]);
-	}else {if (isset($_POST["nome"])){
-  		$nome = utf8_decode($_POST["nome"]);
+	if (isset($_GET["codigo"])){
+  		$codigo = utf8_decode($_GET["codigo"]);
+	}else {if (isset($_POST["codigo"])){
+  		$codigo = utf8_decode($_POST["codigo"]);
 	}};
 	
 	if (isset($_GET["data"])){
@@ -100,6 +100,10 @@ define('FPDF_FONTPATH','fpdf16/font/');
 	}else {if (isset($_POST["tel"])){
   		$tel = utf8_decode($_POST["tel"]);
 	}};
+	
+	$sql = "SELECT nome, endereco, bairro, telefone, celular FROM pacientes WHERE codigo = '$codigo';";
+	$resultado = mysql_query($sql);
+	$result = mysql_fetch_array($resultado);
     
     $sqlcon = "SELECT nome FROM convenios WHERE id = '$convenio';";
     $resultadocon = mysql_query($sqlcon);
@@ -120,7 +124,7 @@ define('FPDF_FONTPATH','fpdf16/font/');
 	$pdf->Ln(7);
 	$pdf->SetFont('Arial','U',8);
 	$pdf->Cell(1);
-	$pdf->Cell(50,10,'Nome: '.$nome,0,0);
+	$pdf->Cell(50,10,'Nome: '.$result[0],0,0);
 	$pdf->Cell(50);
 	$pdf->Cell(50,10,'Data da Aval.: '.$data,0,0);
     $pdf->SetX(149);
@@ -128,7 +132,7 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->Cell(0,7,utf8_decode('Observações: (anotações do CD)'),0,0);
 	$pdf->Ln(7);
 	$pdf->Cell(1);
-	$pdf->Cell(70,10,utf8_decode('Endereço: ').$endereco,0,0);
+	$pdf->Cell(70,10,utf8_decode('Endereço: ').$result[1],0,0);
     $pdf->SetX(149);
     $pdf->Cell(1);
     $pdf->Cell(0,7,'______________________________________________________________________________________',0,0);
@@ -140,9 +144,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->Cell(0,7,'______________________________________________________________________________________',0,0);
 	$pdf->Ln(7);
 	$pdf->Cell(1);
-	$pdf->Cell(30,10,utf8_decode('Telefone: ').$tel,0,0);
-	$pdf->Cell(30);
-	$pdf->Cell(50,10,utf8_decode('Bairro: ').$bairro,0,0);
+	$pdf->Cell(30,10,utf8_decode('Telefone: ').$result[3],0,0);
+	$pdf->Cell(20);
+	$pdf->Cell(30,10,utf8_decode('Celular: ').$result[4],0,0);
+	$pdf->Cell(20);
+	$pdf->Cell(50,10,utf8_decode('Bairro: ').$result[2],0,0);
     $pdf->SetX(149);
     $pdf->Cell(1);
     $pdf->Cell(0,7,'______________________________________________________________________________________',0,0);
