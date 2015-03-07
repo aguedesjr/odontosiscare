@@ -50,7 +50,7 @@
                             <a class="dropdown-toggle" href="#"><i class="icon-stats-3"></i>Relatórios</a>
                             <ul class="dropdown-menu" data-role="dropdown">
                                 <li><a href="relatorioconvenio.php"><i class="icon-newspaper"></i>Convênio</a></li>
-                                <li><a href=""><i class="icon-user-3"></i>Profissional</a></li>
+                                <li><a href="relatorioprofissional.php"><i class="icon-user-3"></i>Profissional</a></li>
                             </ul>
                         </li>
                         <li class="stick bg-brown">
