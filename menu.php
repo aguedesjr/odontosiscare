@@ -49,10 +49,8 @@
                         <li class="stick bg-steel">
                             <a class="dropdown-toggle" href="#"><i class="icon-stats-3"></i>Relatórios</a>
                             <ul class="dropdown-menu" data-role="dropdown">
-                                <li><a href=""><i class="icon-file"></i>Autorização</a></li>
-                                <li><a href=""><i class="icon-pencil"></i>Procedimentos</a></li>
-                                <li><a href=""><i class="icon-cancel-2"></i>Prontuário</a></li>
-                                <li><a href=""><i class="icon-cancel-2"></i>Médica</a></li>
+                                <li><a href="relatorioconvenio.php"><i class="icon-newspaper"></i>Convênio</a></li>
+                                <li><a href=""><i class="icon-user-3"></i>Profissional</a></li>
                             </ul>
                         </li>
                         <li class="stick bg-brown">

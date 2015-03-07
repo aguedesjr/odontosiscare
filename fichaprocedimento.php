@@ -500,7 +500,7 @@ $resultadop = mysql_query($sqlp);
                                 <td bgcolor="#FDFDFD">
                                     <label>Data</label>
                                     <div class="input-control text" id="datepicker">
-                                        <input type="text" name="data" value="<? echo date("d/m/Y");?>" placeholder="Data">
+                                        <input type="text" name="data" readonly="readonly" value="<? echo date("d/m/Y");?>" placeholder="Data">
                                         <button class="btn-date"></button>
                                     </div>
                                 </td>

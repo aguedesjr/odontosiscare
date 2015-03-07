@@ -72,11 +72,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
 	$usuario = $_SESSION[login];
 	$mes1 = date("m");
 	//Realiza a consulta das receitas
-	$sql = "SELECT nome, valor, data FROM receitas WHERE user = '$usuario' AND data LIKE '%-$mes1-%';";
-	$resultado = mysql_query($sql);
+	//$sql = "SELECT nome, valor, data FROM receitas WHERE user = '$usuario' AND data LIKE '%-$mes1-%';";
+	//$resultado = mysql_query($sql);
 	//Realiza a consulta das despesas
-	$sqld = "SELECT nome, valor, data FROM despesas WHERE user = '$usuario' AND data LIKE '%-$mes1-%';";
-	$resultadod = mysql_query($sqld);
+	//$sqld = "SELECT nome, valor, data FROM despesas WHERE user = '$usuario' AND data LIKE '%-$mes1-%';";
+	//$resultadod = mysql_query($sqld);
 	
 	if (isset($_GET["codigo"])){
   		$codigo = utf8_decode($_GET["codigo"]);
@@ -362,7 +362,7 @@ define('FPDF_FONTPATH','fpdf16/font/');
         $obs = $_POST["obs"];
     }};
 	
-	$sql = "SELECT data, matricula, cpf, endereco, bairro, cep, telefone, celular, nome FROM pacientes WHERE codigo = '$codigo';";
+	$sql = "SELECT data, matricula, cpf, endereco, bairro, cep, telefone, celular, nome, id FROM pacientes WHERE codigo = '$codigo';";
 	$resultado = mysql_query($sql);
 	$result = mysql_fetch_array($resultado);
 	
@@ -428,7 +428,7 @@ define('FPDF_FONTPATH','fpdf16/font/');
 	foreach ($auxcod as $cod) {
 		if (!empty($cod)){
 			//Salva as informa��es na tabela procodont para gerar os relat�rios
-			$sqli = "INSERT INTO procodont (nomepaciente, procedimento, profissional, convenio, data) VALUES ('$nome', '$cod', '$profissional', '$convenio1', '$datac');";
+			$sqli = "INSERT INTO procodont (nomepaciente, procedimento, profissional, convenio, data) VALUES ('$result[9]', '$cod', '$profissional', '$convenio', '$datac');";
 			// Executa o comando SQL
 			mysql_query($sqli);
 		}
