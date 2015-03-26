@@ -4,13 +4,13 @@
 <!-- REALIZA A CONSULTA NO DB DA INFORMACAO ENVIADA -->
 <?
 
-if (isset($_GET["cpf"])){
-    $cpf = utf8_decode($_GET["cpf"]);
-}else {if (isset($_POST["cpf"])){
-    $cpf = utf8_decode($_POST["cpf"]);
+if (isset($_GET["codigo"])){
+    $codigo = utf8_decode($_GET["codigo"]);
+}else {if (isset($_POST["codigo"])){
+    $codigo = utf8_decode($_POST["codigo"]);
 }};
 
-$sql = "SELECT matricula, data, endereco, cep, bairro, telefone, celular, cidade, estado, nome, id FROM pacientes WHERE cpf = '$cpf'";
+$sql = "SELECT matricula, data, endereco, cep, bairro, telefone, celular, cidade, estado, nome, id, cpf FROM pacientes WHERE codigo = '$codigo'";
 $resultado = mysql_query($sql);
 $result = mysql_fetch_array($resultado);
 $linhas = mysql_num_rows($resultado);
@@ -56,12 +56,13 @@ $datan = implode("/", array_reverse(explode("-", $result[1])));
             
             var str = document.getElementById("cpf").value;
             
-            if (form.cpf.value=="") {
-                alert("CPF não informado!!");
-                document.getElementById("divcpf").className = "input-control text error-state";
-                form.cpf.focus();
-                return false;
-            } else {
+            //if (form.cpf.value=="") {
+                //alert("CPF não informado!!");
+                //document.getElementById("divcpf").className = "input-control text error-state";
+                //form.cpf.focus();
+                //return false;
+            //} 
+            if (form.cpf.value!="") {
                 str = str.replace('.','');
                 str = str.replace('.','');
                 str = str.replace('-','');
@@ -157,7 +158,7 @@ $datan = implode("/", array_reverse(explode("-", $result[1])));
                             <td bgcolor="#FDFDFD">
                                 <label>CPF</label>
                                 <div class="input-control text size2" id="divcpf" data-role="input-control">
-                                    <input type="text" id="cpf" name="cpf" maxlength="14" value="<? echo $cpf?>" placeholder="Informe o CPF">
+                                    <input type="text" id="cpf" name="cpf" maxlength="14" value="<? echo $result[11]?>" placeholder="Informe o CPF">
                                 </div>
                             </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                             <td bgcolor="#FDFDFD">

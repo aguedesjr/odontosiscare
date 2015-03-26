@@ -5,11 +5,11 @@
 <script src="js/jquery.maskedinput.js" type="text/javascript"></script> <!-- SCRIPT MASK -->
 
     <script>
-        $(function() {
-            jQuery(function($){
-                $("#cpf").mask("999.999.999-99");
-            });
-        });
+        //$(function() {
+        //    jQuery(function($){
+        //        $("#cpf").mask("999.999.999-99");
+        //    });
+        //});
         
         //function zerar() {
         //    document.getElementById("divcpf").className = "input-control text";
@@ -18,73 +18,17 @@
         //}
         
         function valida(form) {
-                        
-            var str = document.getElementById("cpf").value;
-            
-            if (form.cpf.value=="") {
-                alert("CPF não informado!!");
-                document.getElementById("divcpf").className = "input-control text error-state";
-                form.cpf.focus();
+            if (form.codigo.value=="") {
+                alert("Codigo não informado!!");
+                document.getElementById("divcodigo").className = "input-control text size2 error-state";
+                form.codigo.focus();
                 return false;
-            } else {
-                str = str.replace('.','');
-                str = str.replace('.','');
-                str = str.replace('-','');
-                cpf = str;
-                var numeros, digitos, soma, i, resultado, digitos_iguais;
-                digitos_iguais = 1;
-                if (cpf.length < 11) {
-                      alert("CPF invalido!!");
-                      document.getElementById("divcpf").className = "input-control text error-state";
-                      form.cpf.focus();
-                      return false;
-                }
-                for (i = 0; i < cpf.length - 1; i++)
-                      if (cpf.charAt(i) != cpf.charAt(i + 1))
-                            {
-                            digitos_iguais = 0;
-                            //alert("CPF invalido!!");
-                            document.getElementById("divcpf").className = "input-control text error-state";
-                            form.cpf.focus();
-                            break;
-                            }
-                if (!digitos_iguais)
-                      {
-                      numeros = cpf.substring(0,9);
-                      digitos = cpf.substring(9);
-                      soma = 0;
-                      for (i = 10; i > 1; i--)
-                            soma += numeros.charAt(10 - i) * i;
-                      resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-                      if (resultado != digitos.charAt(0)) {
-                            alert("CPF invalido!!");
-                            document.getElementById("divcpf").className = "input-control text error-state";
-                            form.cpf.focus();
-                            return false;
-                      }
-                      numeros = cpf.substring(0,10);
-                      soma = 0;
-                      for (i = 11; i > 1; i--)
-                            soma += numeros.charAt(11 - i) * i;
-                      resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-                      if (resultado != digitos.charAt(1)){
-                            alert("CPF invalido!!");
-                            document.getElementById("divcpf").className = "input-control text error-state";
-                            form.cpf.focus();
-                            return false;
-                        }
-                      document.getElementById("divcpf").className = "input-control text";
-                      return true;
-                      }
-                else {
-                    alert("CPF invalido!!");
-                    document.getElementById("divcpf").className = "input-control text error-state";
-                    form.cpf.focus();
-                    return false;
-                }
-                
             }
-       };
+            
+            if (form.codigo.value!="") {
+                document.getElementById("divcodigo").className = "input-control text size2";
+            }
+        };
         
     </script>
 
@@ -109,6 +53,20 @@
     <style>
         .ui-helper-hidden-accessible {display: none; }
     </style>
+    
+    <?
+    //Recebe as informacoes buscadas na busca de pacientes
+    
+    if (isset($_GET["codigopac"])){
+    	$codigo = utf8_decode($_GET["codigopac"]);
+    }else {if (isset($_POST["codigopac"])){
+    	$codigo = utf8_decode($_POST["codigopac"]);
+    }};
+    
+    $sqlpac = "SELECT nome FROM pacientes WHERE codigo = '$codigo'";
+    $resultadopac = mysql_query($sqlpac);
+    $resultpac = mysql_fetch_array($resultadopac);
+    ?>
 
 <!-- INICIO DO ARQUIVO -->
 <body class="metro">
@@ -134,10 +92,17 @@
                     </ul>
                     <div class="frames">
                         <div class="frame" id="_page_1">
-                            <label>CPF</label>
-                            <div class="input-control text" id="divcpf" data-role="input-control">
-                                <input type="text" id="cpf" name="cpf" placeholder="CPF do Paciente">
-                            </div><br />
+                            <label>Codigo</label>
+                            <table><tr>
+                                 <td bgcolor="#FDFDFD">
+                            <div class="input-control text size2" id="divcodigo" data-role="input-control">
+                                <input type="text" id="codigo" name="codigo" placeholder="Codigo do Paciente" value="<? echo $codigo?>">
+                            </div>
+                            </td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
+                            <td bgcolor="#FDFDFD">
+                                    <a class="button image-button primary image-left" name="buscarPaciente" href="buscarpacientex.php"><i class="icon-search on-left" style="top: -3px; left: 7px"></i>Buscar</a>
+                                </td> 
+                            </tr></table><br />
                             <center>
                                 
                                 <button type="submit" class="image-button primary image-left">
