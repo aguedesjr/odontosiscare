@@ -1,0 +1,10 @@
+ATUALIZAR SISTEMA COM AS SEGUINTES INFORMAÇÕES:
+
+-> Colocar valor do desconto na ficha de Procedimentos
+
+-> Colocar valor total na ficha de autorização
+
+-> Colocar um menu com ficha para médicos
+	-> Ficha de Autorização
+	-> Ficha de Procedimentos
+	-> Ficha de Prontuário
