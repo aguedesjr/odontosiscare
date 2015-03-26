@@ -35,6 +35,8 @@
                 //$("#cpf").mask("999.999.999-99");
             //});
             
+            var total = 0;
+            
             $('#codigo').change(function(){
                 if( $(this).val() ) {                   
                     $.getJSON('getnome.php?search=',{codigo: $(this).val(), ajax: 'true'}, function(j){ 
@@ -107,7 +109,9 @@
                          success: function(data1){
                            $("input[name='dente']").val(aux);   
                            $("input[name='valor']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
                            document.getElementById("valor").innerHTML = "R$ " + data1;
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -134,7 +138,9 @@
                          success: function(data1){
                            $("input[name='dente2']").val(aux);  
                            $("input[name='valor2']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
                            document.getElementById("valor2").innerHTML = "R$ " + data1;
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -162,6 +168,8 @@
                            $("input[name='dente3']").val(aux);  
                            $("input[name='valor3']").val(data1);
                            document.getElementById("valor3").innerHTML = "R$ " + data1;
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -189,6 +197,8 @@
                             $("input[name='dente4']").val(aux);
                             document.getElementById("valor4").innerHTML = "R$ " + data1;
                             $("input[name='valor4']").val(data1);
+                            total = parseFloat(total) + parseFloat(data1);
+                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -216,6 +226,8 @@
                            $("input[name='dente5']").val(aux);
                            document.getElementById("valor5").innerHTML = "R$ " + data1;  
                            $("input[name='valor5']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -243,6 +255,8 @@
                            $("input[name='dente6']").val(aux);
                            document.getElementById("valor6").innerHTML = "R$ " + data1;  
                            $("input[name='valor6']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -270,6 +284,8 @@
                            $("input[name='dente7']").val(aux);
                            document.getElementById("valor7").innerHTML = "R$ " + data1;  
                            $("input[name='valor7']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -297,6 +313,8 @@
                            $("input[name='dente8']").val(aux);
                            document.getElementById("valor8").innerHTML = "R$ " + data1;  
                            $("input[name='valor8']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -324,6 +342,8 @@
                            $("input[name='dente9']").val(aux);
                            document.getElementById("valor9").innerHTML = "R$ " + data1;  
                            $("input[name='valor9']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -351,6 +371,8 @@
                            $("input[name='dente10']").val(aux);
                            document.getElementById("valor10").innerHTML = "R$ " + data1; 
                            $("input[name='valor10']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -532,6 +554,18 @@ $resultpac = mysql_fetch_array($resultadopac);
                                 </table><br />
                                 
                                 <!-- FIM DA TABELA PROCEDIMENTOS -->
+                                
+                                <!-- VALOR TOTAL DO PROCEDIMENTO -->
+                                
+                                <div class="span6"></div>
+                               	<table>
+                               		<tr>
+                                		<td><label id="total">Total: R$ 0,00</label></td>
+                                	</tr>
+                                </table>
+                                <br>
+                                
+                                <!-- FIM DO VALOR TOTAL DO PROCEDIMENTO -->
                             
                             <center>
                                 
