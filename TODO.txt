@@ -2,7 +2,7 @@ ATUALIZAR SISTEMA COM AS SEGUINTES INFORMAÇÕES:
 
 -> Colocar valor do desconto na ficha de Procedimentos - OK
 
--> Colocar valor total na ficha de autorização
+-> Colocar valor total na ficha de autorização - OK
 
 -> Colocar um menu com ficha para médicos
 	-> Ficha de Autorização

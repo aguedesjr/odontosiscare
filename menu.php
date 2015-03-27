@@ -38,12 +38,19 @@
                             </ul>
                         </li>
                         <li class="stick bg-blue">
-                            <a class="dropdown-toggle" href="#"><i class="icon-cabinet"></i>Fichas</a>
+                            <a class="dropdown-toggle" href="#"><i class="icon-cabinet"></i>Fichas Odonto</a>
                             <ul class="dropdown-menu" data-role="dropdown">
                                 <li><a href="fichaautorizacao.php"><i class="icon-foursquare"></i>Autorização</a></li>
                                 <li><a href="fichabuscaprocedimento.php"><i class="icon-copy"></i>Procedimentos</a></li>
                                 <li><a href="fichaprontuario.php"><i class="icon-folder-2"></i>Prontuário</a></li>
-                                <li><a href="fichamedica.php"><i class="icon-award-stroke"></i>Médica</a></li>
+                            </ul>
+                        </li>
+                        <li class="stick bg-darkBlue">
+                            <a class="dropdown-toggle" href="#"><i class="icon-heart"></i>Fichas Médicas</a>
+                            <ul class="dropdown-menu" data-role="dropdown">
+                                <li><a href="fichaautorizacaomedica.php"><i class="icon-foursquare"></i>Autorização</a></li>
+                                <li><a href="fichabuscaprocedimentomedico.php"><i class="icon-copy"></i>Procedimentos</a></li>
+                                <li><a href="fichamedica.php"><i class="icon-folder-2"></i>Prontuário</a></li>
                             </ul>
                         </li>
                         <li class="stick bg-steel">
