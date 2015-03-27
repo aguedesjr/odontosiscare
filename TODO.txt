@@ -1,6 +1,6 @@
 ATUALIZAR SISTEMA COM AS SEGUINTES INFORMAÇÕES:
 
--> Colocar valor do desconto na ficha de Procedimentos
+-> Colocar valor do desconto na ficha de Procedimentos - OK
 
 -> Colocar valor total na ficha de autorização
 

@@ -82,6 +82,7 @@ $resultadocod10 = mysql_query($sqlcod10);
 
 <script src="js/cep.js" type="text/javascript"></script> <!-- SCRIPT CEP -->
 <script src="js/jquery.maskedinput.js" type="text/javascript"></script> <!-- SCRIPT MASK -->
+<script src="js/maskMoney.js" type="text/javascript"></script> <!-- SCRIPT MASK MONEY -->
 
     <script>
                 
@@ -104,10 +105,29 @@ $resultadocod10 = mysql_query($sqlcod10);
                 document.getElementById("divcpf").className = "input-control text size2";
             }
         };
+
+        $(document).ready(function(){
+            $("input.dinheiro").maskMoney({showSymbol:false, symbol:"R$", decimal:".", thousands:"."});
+      	});
         
     </script>
     
     <script>
+
+    	var total = 0;
+
+	    function calcValor(){
+			
+			var valorfinal = 0;
+	    	var desconto = parseFloat(document.getElementById("desconto").value);
+	    	//alert(valorcalculado);
+			//alert(desconto);
+	    	valorfinal = parseFloat(total) - parseFloat(desconto);
+	
+	    	document.getElementById("total").innerHTML = "Total: R$ " + valorfinal + ",00";
+	
+	    }
+	
         $(function() {
             
             jQuery(function($){
@@ -187,6 +207,8 @@ $resultadocod10 = mysql_query($sqlcod10);
                            $("input[name='dente']").val(aux);   
                            $("input[name='valor']").val(data1);
                            document.getElementById("valor").innerHTML = "R$ " + data1;
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -214,6 +236,8 @@ $resultadocod10 = mysql_query($sqlcod10);
                            $("input[name='dente2']").val(aux);  
                            $("input[name='valor2']").val(data1);
                            document.getElementById("valor2").innerHTML = "R$ " + data1;
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -241,6 +265,8 @@ $resultadocod10 = mysql_query($sqlcod10);
                            $("input[name='dente3']").val(aux);  
                            $("input[name='valor3']").val(data1);
                            document.getElementById("valor3").innerHTML = "R$ " + data1;
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -268,6 +294,8 @@ $resultadocod10 = mysql_query($sqlcod10);
                             $("input[name='dente4']").val(aux);
                             document.getElementById("valor4").innerHTML = "R$ " + data1;
                             $("input[name='valor4']").val(data1);
+                            total = parseFloat(total) + parseFloat(data1);
+                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -295,6 +323,8 @@ $resultadocod10 = mysql_query($sqlcod10);
                            $("input[name='dente5']").val(aux);
                            document.getElementById("valor5").innerHTML = "R$ " + data1;  
                            $("input[name='valor5']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -322,6 +352,8 @@ $resultadocod10 = mysql_query($sqlcod10);
                            $("input[name='dente6']").val(aux);
                            document.getElementById("valor6").innerHTML = "R$ " + data1;  
                            $("input[name='valor6']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -349,6 +381,8 @@ $resultadocod10 = mysql_query($sqlcod10);
                            $("input[name='dente7']").val(aux);
                            document.getElementById("valor7").innerHTML = "R$ " + data1;  
                            $("input[name='valor7']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -376,6 +410,8 @@ $resultadocod10 = mysql_query($sqlcod10);
                            $("input[name='dente8']").val(aux);
                            document.getElementById("valor8").innerHTML = "R$ " + data1;  
                            $("input[name='valor8']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -403,6 +439,8 @@ $resultadocod10 = mysql_query($sqlcod10);
                            $("input[name='dente9']").val(aux);
                            document.getElementById("valor9").innerHTML = "R$ " + data1;  
                            $("input[name='valor9']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -430,6 +468,8 @@ $resultadocod10 = mysql_query($sqlcod10);
                            $("input[name='dente10']").val(aux);
                            document.getElementById("valor10").innerHTML = "R$ " + data1; 
                            $("input[name='valor10']").val(data1);
+                           total = parseFloat(total) + parseFloat(data1);
+                           document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
                 }
@@ -646,9 +686,27 @@ $resultadop = mysql_query($sqlp);
                                             <td><label id="valor10"></label></td><input type="hidden" name="valor10" value="" />
                                         </tr>
                                     </tbody>
+                                </table>
+                                <div class="span6"></div>
+                                <table>
+                                	<tr>
+                                     	<td><label>Desconto R$:</label><div class="input-control text size2" data-role="input-control"><input type="text" id="desconto" name="desconto" class="dinheiro" onblur="calcValor()" placeholder="Desconto R$"></div></td>
+                                    </tr>
                                 </table><br />
                                 
                                 <!-- FIM DA TABELA PROCEDIMENTOS -->
+                                
+                                <!-- VALOR TOTAL DO PROCEDIMENTO -->
+                                
+                                <div class="span6"></div>
+                               	<table>
+                               		<tr>
+                                		<td><label id="total">Total: R$ 0,00</label></td>
+                                	</tr>
+                                </table>
+                                <br>
+                                
+                                <!-- FIM DO VALOR TOTAL DO PROCEDIMENTO -->
                             
                             <center>
                                 

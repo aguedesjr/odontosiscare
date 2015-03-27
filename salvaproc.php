@@ -361,6 +361,18 @@ define('FPDF_FONTPATH','fpdf16/font/');
     }else {if (isset($_POST["obs"])){
         $obs = $_POST["obs"];
     }};
+    
+    if (isset($_GET["desconto"])){
+    	$desconto = $_GET["desconto"];
+    }else {if (isset($_POST["desconto"])){
+    	$desconto = $_POST["desconto"];
+    }};
+    
+    //Verifica se o valor do desconto está vazio
+    if (empty($desconto))
+    {
+    	$desconto = 0;
+    }
 	
 	$sql = "SELECT data, matricula, cpf, endereco, bairro, cep, telefone, celular, nome, id FROM pacientes WHERE codigo = '$codigo';";
 	$resultado = mysql_query($sql);
@@ -1132,12 +1144,19 @@ define('FPDF_FONTPATH','fpdf16/font/');
     
                     //BLOCO CALCULO DO VALOR TOTAL
     //-----------------------------------------------------------------------------------------------
-    $acu = ((float) $v1 + (float) $v2 + (float) $v3 + (float) $v4 + (float) $v5 + (float) $v6 + (float) $v7 + (float) $v8 + (float) $v9 + (float) $v10);	    
+    $acu = (((float) $v1 + (float) $v2 + (float) $v3 + (float) $v4 + (float) $v5 + (float) $v6 + (float) $v7 + (float) $v8 + (float) $v9 + (float) $v10) - (float) $desconto);	    
 	$pdf->Ln(7);
+	$pdf->SetFont('Arial','',8);
+	$pdf->Cell(1);
+	$pdf->Cell(10,10,'Desconto: R$ '.number_format($desconto,2,',','.'),0,0);
 	$pdf->SetFont('Arial','B',10);
-	$pdf->Cell(95);
+	$pdf->Cell(84);
 	$pdf->Cell(10,10,'Total: R$ '.number_format($acu,2,',','.'),0,0);
+	$pdf->SetX("151");
+	$pdf->SetFont('Arial','',8);
+	$pdf->Cell(10,10,'Desconto: R$ '.number_format($desconto,2,',','.'),0,0);
     $pdf->SetX("245");
+    $pdf->SetFont('Arial','B',10);
     $pdf->Cell(10,10,'Total: R$ '.number_format($acu,2,',','.'),0,0);
 	$pdf->Ln(10);
     //-----------------------------------------------------------------------------------------------
