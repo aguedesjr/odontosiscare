@@ -4,7 +4,7 @@ ATUALIZAR SISTEMA COM AS SEGUINTES INFORMAÇÕES:
 
 -> Colocar valor total na ficha de autorização - OK
 
--> Colocar um menu com ficha para médicos
-	-> Ficha de Autorização
+-> Colocar um menu com ficha para médicos - OK
+	-> Ficha de Autorização - OK
 	-> Ficha de Procedimentos
-	-> Ficha de Prontuário
+	-> Ficha de Prontuário - OK
