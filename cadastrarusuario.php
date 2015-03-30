@@ -45,7 +45,7 @@
                             <td bgcolor="#FDFDFD">
                                 <label>Tipo</label>
                                 <div class="input-control select">
-                                    <select name="tipo">
+                                    <select name="permissao">
                                         <option value=""></option>
                                         <option value="ADMIN">ADMIN</option>
                                         <option value="USER">USER</option>

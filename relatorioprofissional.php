@@ -6,7 +6,7 @@
     
 <?
 
-$sql = "SELECT nome, id FROM profissionais WHERE tipo = 'CRO'";
+$sql = "SELECT nome, id FROM profissionais";
 $resultado = mysql_query($sql);
 
 ?>
@@ -28,7 +28,7 @@ $resultado = mysql_query($sql);
             <div class="span1"></div>
             <div class="span10">
                 <form method="POST" action="gerarelatprof.php" name="gerarelatconv" id="gerarelatconv">
-                <div class="fichaprontuario">
+                <div class="relatorio">
                 <div class="tab-control" data-role="tab-control">
                     <ul class="tabs">
                         <li class="active"><a href="#_page_1">Dados Pessoais</a></li>

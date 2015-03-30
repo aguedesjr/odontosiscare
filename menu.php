@@ -1,3 +1,4 @@
+		<? if ($_SESSION['perfil'] == "ADMIN" or $_SESSION["perfil"] == "USER"){?>
             <div class="span1"></div>
             <div class="span3">
                 <nav class="sidebar light">
@@ -49,10 +50,13 @@
                             <a class="dropdown-toggle" href="#"><i class="icon-heart"></i>Fichas Médicas</a>
                             <ul class="dropdown-menu" data-role="dropdown">
                                 <li><a href="fichaautorizacaomedica.php"><i class="icon-foursquare"></i>Autorização</a></li>
-                                <li><a href="fichabuscaprocedimentomedico.php"><i class="icon-copy"></i>Procedimentos</a></li>
+                                <li><a href="fichabuscaprocedimentomedicomedico.php"><i class="icon-copy"></i>Procedimentos</a></li>
                                 <li><a href="fichamedica.php"><i class="icon-folder-2"></i>Prontuário</a></li>
                             </ul>
                         </li>
+                        
+                        <!-- SOMENTE ACESSO DO ADMIN -->
+                        <? if ($_SESSION['perfil'] == "ADMIN"){?>
                         <li class="stick bg-steel">
                             <a class="dropdown-toggle" href="#"><i class="icon-stats-3"></i>Relatórios</a>
                             <ul class="dropdown-menu" data-role="dropdown">
@@ -68,7 +72,11 @@
                                 <li><a href=""><i class="icon-cancel-2"></i>Excluir</a></li>
                             </ul>
                         </li>
+                        <?};?>
+                        <!-- FIM DO ACESSO DO ADMIN -->
+                        
                         <li class=""><a href="logout.php"><i class="icon-exit"></i>Sair</a></li>
                     </ul>
                 </nav>
             </div>
+         <?};?>

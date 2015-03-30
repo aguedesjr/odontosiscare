@@ -190,6 +190,6 @@ define('FPDF_FONTPATH','fpdf16/font/');
 	$pdf->Ln(10);
 	$pdf->SetFont('Arial','',8);
 	$pdf->Cell(0,10,utf8_decode('Data: '.$data),0,0,'R');
-	$pdf->Output("prontuario_medico.pdf",D); //Gera o pdf e permite o download
+	$pdf->Output("prontuario_medico".$result[8].".pdf",D); //Gera o pdf e permite o download
 
 ?>
