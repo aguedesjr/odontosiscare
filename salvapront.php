@@ -287,6 +287,6 @@ define('FPDF_FONTPATH','fpdf16/font/');
     //posiciona horizontalmente
     $pdf->SetX("220");
 	$pdf->MultiCell(70,7,$opcao,1);		
-	$pdf->Output("prontuario_odontologico.pdf",D); //Gera o pdf e permite o download
+	$pdf->Output("prontuario_odontologico".$result[0].".pdf",D); //Gera o pdf e permite o download
 
 ?>
