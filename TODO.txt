@@ -6,5 +6,9 @@ ATUALIZAR SISTEMA COM AS SEGUINTES INFORMAÇÕES:
 
 -> Colocar um menu com ficha para médicos - OK
 	-> Ficha de Autorização - OK
-	-> Ficha de Procedimentos
+	-> Ficha de Procedimentos - OK
 	-> Ficha de Prontuário - OK
+
+-> Finalizar o cadastro de usuários
+	-> Editar - Não necessário
+	-> Excluir - OK

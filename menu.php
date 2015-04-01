@@ -68,8 +68,8 @@
                             <a class="dropdown-toggle" href="#"><i class="icon-key"></i>Usuários</a>
                             <ul class="dropdown-menu" data-role="dropdown">
                                 <li><a href="cadastrarusuario.php"><i class="icon-file"></i>Cadastrar</a></li>
-                                <li><a href=""><i class="icon-pencil"></i>Editar</a></li>
-                                <li><a href=""><i class="icon-cancel-2"></i>Excluir</a></li>
+                                <!--<li><a href="editarusuario.php"><i class="icon-pencil"></i>Editar</a></li> -->
+                                <li><a href="excluirusuario.php"><i class="icon-cancel-2"></i>Excluir</a></li>
                             </ul>
                         </li>
                         <?};?>
