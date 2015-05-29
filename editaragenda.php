@@ -98,14 +98,20 @@ $(function() {
                                                     <option value="<? echo $resulta[3];?>"><? echo $resulta[3];?></option>
                                                     <option value="">---------</option>
                                                     <?
-                                                    for ($i = 07; $i < 22; $i++) {
+                                                    for ($i = 07; $i < 21; $i++) {
                                                         $num = $i > 23 ? $i - 24 : $i;
                                                         $num = $num < 10 ? "0$num" : $num;
                                                         $ampm = $num > 11 && $num < 24 ? 'PM' : 'AM';
                                                         echo "<option value=\"$num:00\"> $num:00 $ampm</option>\n";
                                                         if ($num != 5)
+                                                        	echo "<option value=\"$num:15\"> $num:15 $ampm</option>\n";
+                                                        if ($num != 5)
                                                             echo "<option value=\"$num:30\"> $num:30 $ampm</option>\n";
+                                                        if ($num != 5)
+                                                        	echo "<option value=\"$num:45\"> $num:45 $ampm</option>\n";
                                                     }
+                                                    $num = 21;
+                                                    echo "<option value=\"$num:00\"> $num:00 $ampm</option>\n";
                                                     ?>
                                             </select>
                                             </div>
