@@ -82,6 +82,7 @@ $resultadoh = mysql_query($sqlh);
                                 
                                 <!-- FIM DA TABELA HORÁRIOS AGENDADOS -->
                                 <center>
+                                    <a class="button image-button primary image-left" name="voltar" href="agenda.php"><i class="icon-arrow-left on-left" style="top: -3px; left: 7px"></i>Voltar</a>
                                     <a class="button image-button primary image-left" name="novo" href="novoagenda.php?data=<? echo $data;?>&profissional=<? echo $profissional;?>"><i class="icon-new on-left" style="top: -3px; left: 7px"></i>Novo</a>
                                 </center>
                                     
