@@ -36,6 +36,8 @@
             //});
             
             var total = 0;
+            var total2 = 0;
+            var aux = []; //Variavel de auxilio para o calculo do valor final
             
             $('#codigo').change(function(){
                 if( $(this).val() ) {                   
@@ -70,7 +72,7 @@
             $('#convenio').change(function(){
                 if( $(this).val() ) {                   
                     $.getJSON('getprod.php?search=',{convenio: $(this).val(), ajax: 'true'}, function(j){
-                        var options = '<option value=""></option>'; 
+                        var options = '<option value=" "></option>'; 
                         for (var i = 0; i < j.length; i++) {
                             options += '<option value="' + j[i].codigo + '">' + j[i].codigo + '</option>';  
                         }
@@ -88,11 +90,19 @@
                 }
             });
             $('#codconvenio').change(function(){
-                if( $(this).val() ) {
+
+            	if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   //Verifica se o codigo retornado é vazio. Se sim, subtrai o valor da linha do total
+                   if (cod == " "){
+                       total = total - aux[0];
+                       document.getElementById("proc").innerHTML = " ";
+                       document.getElementById("valor").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -109,18 +119,19 @@
                          success: function(data1){   
                            $("input[name='valor']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[0] = parseFloat(data1);
                            document.getElementById("valor").innerHTML = "R$ " + data1;
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio2').change(function(){
+          
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -137,6 +148,7 @@
                          success: function(data1){  
                            $("input[name='valor2']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux2 = data1;
                            document.getElementById("valor2").innerHTML = "R$ " + data1;
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
@@ -539,7 +551,7 @@ $resultpac = mysql_fetch_array($resultadopac);
                                 <div class="span6"></div>
                                	<table>
                                		<tr>
-                                		<td><label id="total">Total: R$ 0,00</label></td>
+                                		<td bgcolor="#FDFDFD"><label id="total">Total: R$ 0,00</label></td>
                                 	</tr>
                                 </table>
                                 <br>

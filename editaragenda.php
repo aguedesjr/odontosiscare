@@ -21,7 +21,7 @@ if (isset($_GET["profissional"])){
         $profissional = utf8_decode($_POST["profissional"]);
 }};
 
-//Busca as informa��es da agenda
+//Busca as informacoes da agenda
 $sqla = "SELECT codprof, nomepaciente, data, horario FROM agenda WHERE id = '$id'";
 $resultadoa = mysql_query($sqla);
 $resulta = mysql_fetch_array($resultadoa);
@@ -30,6 +30,10 @@ $resulta = mysql_fetch_array($resultadoa);
 $sqlp = "SELECT nome FROM profissionais WHERE id = '$profissional'";
 $resultadop = mysql_query($sqlp);
 $resultp = mysql_fetch_array($resultadop);
+
+//Busca o nome dos profissionais para a combo
+$sqlprof = "SELECT id, nome FROM profissionais";
+$resultadoprof = mysql_query($sqlprof);
 
 ?>
 
@@ -117,6 +121,20 @@ $(function() {
                                             </div>
                                         </td>
                                     </tr>
+                                    <tr>
+                                    	<td bgcolor="#FDFDFD">
+                                                <label>Profissional</label>
+                                                <div class="input-control select">
+                                                    <select name="profissional">
+                                                        <option value="<? echo $resulta[0];?>"><? echo utf8_encode($resultp[0]);?></option>
+														<option value="">---------</option>
+                                                        <? while ($linhasprof = mysql_fetch_array($resultadoprof, MYSQL_NUM)){ ?>
+															<option value=<? echo $linhasprof[0];?>><? echo utf8_encode($linhasprof[1]);?></option>
+														<?};?>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                    </tr>
                                 </table><br />
                                 
                                 <center>
@@ -126,7 +144,7 @@ $(function() {
                                             </i>
                                     </button>
                                 </center>
-                                <input type="hidden" name="profissional" value="<? echo $profissional;?>">
+                                <!-- <input type="hidden" name="profissional" value="<? echo $profissional;?>"> -->
                                 <input type="hidden" name="id" value="<? echo $id;?>">
                                 </form>    
                             </div>
