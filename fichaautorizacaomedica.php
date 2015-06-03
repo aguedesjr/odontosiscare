@@ -36,7 +36,6 @@
             //});
             
             var total = 0;
-            var total2 = 0;
             var aux = []; //Variavel de auxilio para o calculo do valor final
             
             $('#codigo').change(function(){
@@ -132,6 +131,13 @@
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
+                   if (cod == " "){
+                       total = total - aux[1];
+                       document.getElementById("proc2").innerHTML = " ";
+                       document.getElementById("valor2").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -148,19 +154,25 @@
                          success: function(data1){  
                            $("input[name='valor2']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
-                           aux2 = data1;
+                           aux[1] = parseFloat(data1);
                            document.getElementById("valor2").innerHTML = "R$ " + data1;
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio3').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[2];
+                       document.getElementById("proc3").innerHTML = " ";
+                       document.getElementById("valor3").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -178,17 +190,24 @@
                            $("input[name='valor3']").val(data1);
                            document.getElementById("valor3").innerHTML = "R$ " + data1;
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[2] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio4').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[3];
+                       document.getElementById("proc4").innerHTML = " ";
+                       document.getElementById("valor4").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -206,17 +225,24 @@
                             document.getElementById("valor4").innerHTML = "R$ " + data1;
                             $("input[name='valor4']").val(data1);
                             total = parseFloat(total) + parseFloat(data1);
+                            aux[3] = parseFloat(data1);
                             document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio5').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[4];
+                       document.getElementById("proc5").innerHTML = " ";
+                       document.getElementById("valor5").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -234,17 +260,24 @@
                            document.getElementById("valor5").innerHTML = "R$ " + data1;  
                            $("input[name='valor5']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[4] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio6').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[5];
+                       document.getElementById("proc6").innerHTML = " ";
+                       document.getElementById("valor6").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -262,17 +295,24 @@
                            document.getElementById("valor6").innerHTML = "R$ " + data1;  
                            $("input[name='valor6']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[5] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio7').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[6];
+                       document.getElementById("proc7").innerHTML = " ";
+                       document.getElementById("valor7").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -290,17 +330,24 @@
                            document.getElementById("valor7").innerHTML = "R$ " + data1;  
                            $("input[name='valor7']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[6] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio8').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[7];
+                       document.getElementById("proc8").innerHTML = " ";
+                       document.getElementById("valor8").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -318,17 +365,24 @@
                            document.getElementById("valor8").innerHTML = "R$ " + data1;  
                            $("input[name='valor8']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[7] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio9').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[8];
+                       document.getElementById("proc9").innerHTML = " ";
+                       document.getElementById("valor9").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -346,17 +400,24 @@
                            document.getElementById("valor9").innerHTML = "R$ " + data1;  
                            $("input[name='valor9']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[8] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio10').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[9];
+                       document.getElementById("proc10").innerHTML = " ";
+                       document.getElementById("valor10").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -374,10 +435,11 @@
                            document.getElementById("valor10").innerHTML = "R$ " + data1; 
                            $("input[name='valor10']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[9] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
         });
     </script>
