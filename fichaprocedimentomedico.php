@@ -94,20 +94,20 @@ $resultadocod10 = mysql_query($sqlcod10);
         //}
         
         function valida(form) {
-            if (form.cpf.value=="") {
-                alert("CPF não informado!!");
-                document.getElementById("divcpf").className = "input-control text size2 error-state";
-                form.cpf.focus();
-                return false;
-            }
+            //if (form.cpf.value=="") {
+                //alert("CPF não informado!!");
+                //document.getElementById("divcpf").className = "input-control text size2 error-state";
+                //form.cpf.focus();
+                //return false;
+            //}
             
-            if (form.cpf.value!="") {
-                document.getElementById("divcpf").className = "input-control text size2";
-            }
+            //if (form.cpf.value!="") {
+                //document.getElementById("divcpf").className = "input-control text size2";
+            //}
         };
 
         $(document).ready(function(){
-            $("input.dinheiro").maskMoney({showSymbol:false, symbol:"R$", decimal:".", thousands:"."});
+            $("input.dinheiro").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
       	});
         
     </script>

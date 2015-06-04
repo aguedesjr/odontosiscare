@@ -94,20 +94,20 @@ $resultadocod10 = mysql_query($sqlcod10);
         //}
         
         function valida(form) {
-            if (form.cpf.value=="") {
-                alert("CPF não informado!!");
-                document.getElementById("divcpf").className = "input-control text size2 error-state";
-                form.cpf.focus();
-                return false;
-            }
+            //if (form.cpf.value=="") {
+                //alert("CPF não informado!!");
+                //document.getElementById("divcpf").className = "input-control text size2 error-state";
+                //form.cpf.focus();
+                //return false;
+            //}
             
-            if (form.cpf.value!="") {
-                document.getElementById("divcpf").className = "input-control text size2";
-            }
+            //if (form.cpf.value!="") {
+                //document.getElementById("divcpf").className = "input-control text size2";
+            //}
         };
 
         $(document).ready(function(){
-            $("input.dinheiro").maskMoney({showSymbol:false, symbol:"R$", decimal:".", thousands:"."});
+            $("input.dinheiro").maskMoney({showSymbol:false, symbol:"R$", decimal:",", thousands:"."});
       	});
         
     </script>
@@ -115,6 +115,7 @@ $resultadocod10 = mysql_query($sqlcod10);
     <script>
 
     	var total = 0;
+    	var aux = []; //Variavel de auxilio para o calculo do valor final
 
 	    function calcValor(){
 			
@@ -167,7 +168,7 @@ $resultadocod10 = mysql_query($sqlcod10);
             $('#convenio').change(function(){
                 if( $(this).val() ) {                   
                     $.getJSON('getprod.php?search=',{convenio: $(this).val(), ajax: 'true'}, function(j){
-                        var options = '<option value=""></option>'; 
+                        var options = '<option value=" "></option>'; 
                         for (var i = 0; i < j.length; i++) {
                             options += '<option value="' + j[i].codigo + '">' + j[i].codigo + '</option>';  
                         }
@@ -189,7 +190,15 @@ $resultadocod10 = mysql_query($sqlcod10);
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   //Verifica se o codigo retornado é vazio. Se sim, subtrai o valor da linha do total
+                   if (cod == " "){
+                       total = total - aux[0];
+                       document.getElementById("proc").innerHTML = " ";
+                       document.getElementById("dente").value = " ";
+                       document.getElementById("valor").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -204,21 +213,29 @@ $resultadocod10 = mysql_query($sqlcod10);
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
                          success: function(data1){
-                           $("input[name='dente']").val(aux);   
+                           //$("input[name='dente']").val(aux);   
                            $("input[name='valor']").val(data1);
-                           document.getElementById("valor").innerHTML = "R$ " + data1;
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[0] = parseFloat(data1);
+                           document.getElementById("valor").innerHTML = "R$ " + data1;
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio2').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[1];
+                       document.getElementById("proc2").innerHTML = " ";
+                       document.getElementById("dente2").value = " ";
+                       document.getElementById("valor2").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -233,21 +250,28 @@ $resultadocod10 = mysql_query($sqlcod10);
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
                          success: function(data1){
-                           $("input[name='dente2']").val(aux);  
                            $("input[name='valor2']").val(data1);
-                           document.getElementById("valor2").innerHTML = "R$ " + data1;
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[1] = parseFloat(data1);
+                           document.getElementById("valor2").innerHTML = "R$ " + data1;
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio3').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[2];
+                       document.getElementById("proc3").innerHTML = " ";
+                       document.getElementById("dente3").value = " ";
+                       document.getElementById("valor3").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -261,22 +285,29 @@ $resultadocod10 = mysql_query($sqlcod10);
                          url: 'getpreco.php',
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
-                         success: function(data1){
-                           $("input[name='dente3']").val(aux);  
+                         success: function(data1){  
                            $("input[name='valor3']").val(data1);
                            document.getElementById("valor3").innerHTML = "R$ " + data1;
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[2] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio4').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[3];
+                       document.getElementById("proc4").innerHTML = " ";
+                       document.getElementById("dente4").value = " ";
+                       document.getElementById("valor4").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -291,21 +322,28 @@ $resultadocod10 = mysql_query($sqlcod10);
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
                          success: function(data1){
-                            $("input[name='dente4']").val(aux);
                             document.getElementById("valor4").innerHTML = "R$ " + data1;
                             $("input[name='valor4']").val(data1);
                             total = parseFloat(total) + parseFloat(data1);
+                            aux[3] = parseFloat(data1);
                             document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio5').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[4];
+                       document.getElementById("proc5").innerHTML = " ";
+                       document.getElementById("dente5").value = " ";
+                       document.getElementById("valor5").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -320,21 +358,28 @@ $resultadocod10 = mysql_query($sqlcod10);
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
                          success: function(data1){
-                           $("input[name='dente5']").val(aux);
                            document.getElementById("valor5").innerHTML = "R$ " + data1;  
                            $("input[name='valor5']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[4] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio6').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[5];
+                       document.getElementById("proc6").innerHTML = " ";
+                       document.getElementById("dente6").value = " ";
+                       document.getElementById("valor6").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -349,21 +394,28 @@ $resultadocod10 = mysql_query($sqlcod10);
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
                          success: function(data1){
-                           $("input[name='dente6']").val(aux);
                            document.getElementById("valor6").innerHTML = "R$ " + data1;  
                            $("input[name='valor6']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[5] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio7').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[6];
+                       document.getElementById("proc7").innerHTML = " ";
+                       document.getElementById("dente7").value = " ";
+                       document.getElementById("valor7").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -378,21 +430,28 @@ $resultadocod10 = mysql_query($sqlcod10);
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
                          success: function(data1){
-                           $("input[name='dente7']").val(aux);
                            document.getElementById("valor7").innerHTML = "R$ " + data1;  
                            $("input[name='valor7']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[6] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio8').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[7];
+                       document.getElementById("proc8").innerHTML = " ";
+                       document.getElementById("dente8").value = " ";
+                       document.getElementById("valor8").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -407,21 +466,28 @@ $resultadocod10 = mysql_query($sqlcod10);
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
                          success: function(data1){
-                           $("input[name='dente8']").val(aux);
                            document.getElementById("valor8").innerHTML = "R$ " + data1;  
                            $("input[name='valor8']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[7] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio9').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[8];
+                       document.getElementById("proc9").innerHTML = " ";
+                       document.getElementById("dente9").value = " ";
+                       document.getElementById("valor9").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -436,21 +502,28 @@ $resultadocod10 = mysql_query($sqlcod10);
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
                          success: function(data1){
-                           $("input[name='dente9']").val(aux);
                            document.getElementById("valor9").innerHTML = "R$ " + data1;  
                            $("input[name='valor9']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[8] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio10').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[9];
+                       document.getElementById("proc10").innerHTML = " ";
+                       document.getElementById("dente10").value = " ";
+                       document.getElementById("valor10").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -465,14 +538,14 @@ $resultadocod10 = mysql_query($sqlcod10);
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
                          success: function(data1){
-                           $("input[name='dente10']").val(aux);
                            document.getElementById("valor10").innerHTML = "R$ " + data1; 
                            $("input[name='valor10']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[9] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
         });
     </script>
