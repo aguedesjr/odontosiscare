@@ -22,9 +22,7 @@ ATUALIZAR SISTEMA COM AS SEGUINTES INFORMAÇÕES:
 -> Possibilitar zerar informações
 	-> Ficha de autorização médica - OK
 	-> Ficha de autorização odontológica - OK
-	-> Ficha de procedimentos médicos
-	-> Ficha de procedimentos odontológicos
 
 -> Verificar cálculo de descontos
-	-> Ficha de procedimentos médicos
-	-> Ficha de procedimentos odontológicos
+	-> Ficha de procedimentos médicos - OK
+	-> Ficha de procedimentos odontológicos - OK
