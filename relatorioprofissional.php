@@ -69,7 +69,7 @@ $resultado = mysql_query($sql);
                                 </div><br /></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                             <td bgcolor="#FDFDFD">
                                 <td bgcolor="#FDFDFD">
-                                    <label>Data</label>
+                                    <label>Ano</label>
                                     <div class="input-control text" data-role="input-control">
                                         <input type="text" id="ano" name="ano" placeholder="Ano">
                                     </div>
