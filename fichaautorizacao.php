@@ -36,6 +36,7 @@
             //});
             
             var total = 0;
+            var aux = []; //Variavel de auxilio para o calculo do valor final
             
             $('#codigo').change(function(){
                 if( $(this).val() ) {                   
@@ -70,7 +71,7 @@
             $('#convenio').change(function(){
                 if( $(this).val() ) {                   
                     $.getJSON('getprod.php?search=',{convenio: $(this).val(), ajax: 'true'}, function(j){
-                        var options = '<option value=""></option>'; 
+                        var options = '<option value=" "></option>'; 
                         for (var i = 0; i < j.length; i++) {
                             options += '<option value="' + j[i].codigo + '">' + j[i].codigo + '</option>';  
                         }
@@ -92,7 +93,15 @@
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   //Verifica se o codigo retornado é vazio. Se sim, subtrai o valor da linha do total
+                   if (cod == " "){
+                       total = total - aux[0];
+                       document.getElementById("proc").innerHTML = " ";
+                       document.getElementById("dente").value = " ";
+                       document.getElementById("valor").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -107,21 +116,29 @@
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
                          success: function(data1){
-                           $("input[name='dente']").val(aux);   
+                           //$("input[name='dente']").val(aux);   
                            $("input[name='valor']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[0] = parseFloat(data1);
                            document.getElementById("valor").innerHTML = "R$ " + data1;
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio2').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[1];
+                       document.getElementById("proc2").innerHTML = " ";
+                       document.getElementById("dente2").value = " ";
+                       document.getElementById("valor2").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -136,21 +153,28 @@
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
                          success: function(data1){
-                           $("input[name='dente2']").val(aux);  
                            $("input[name='valor2']").val(data1);
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[1] = parseFloat(data1);
                            document.getElementById("valor2").innerHTML = "R$ " + data1;
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio3').change(function(){
                 if( $(this).val() ) {
                     
                    var cod = $(this).val();
                    var conv = $('#convenio').val();
-                   var aux = '';
+                   if (cod == " "){
+                       total = total - aux[2];
+                       document.getElementById("proc3").innerHTML = " ";
+                       document.getElementById("dente3").value = " ";
+                       document.getElementById("valor3").innerHTML = " ";
+                       document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+                   }
+                   else {
                    $.ajax({
                          url: 'getinfo.php',
                          //dataType: 'html',
@@ -164,15 +188,15 @@
                          url: 'getpreco.php',
                          //dataType: 'html',
                          data: {codigo:cod, convenio:conv},
-                         success: function(data1){
-                           $("input[name='dente3']").val(aux);  
+                         success: function(data1){  
                            $("input[name='valor3']").val(data1);
                            document.getElementById("valor3").innerHTML = "R$ " + data1;
                            total = parseFloat(total) + parseFloat(data1);
+                           aux[2] = parseFloat(data1);
                            document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
                           }
                    });
-                }
+                }}
             });
             $('#codconvenio4').change(function(){
                 if( $(this).val() ) {

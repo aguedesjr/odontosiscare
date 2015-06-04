@@ -12,3 +12,19 @@ ATUALIZAR SISTEMA COM AS SEGUINTES INFORMAÇÕES:
 -> Finalizar o cadastro de usuários
 	-> Editar - Não necessário
 	-> Excluir - OK
+	
+-> Colocar botão voltar
+	-> Agenda - OK
+
+-> Colocar alteração de profissional
+	-> Edição da agenda - OK
+
+-> Possibilitar zerar informações
+	-> Ficha de autorização médica - OK
+	-> Ficha de autorização odontológica
+	-> Ficha de procedimentos médicos
+	-> Ficha de procedimentos odontológicos
+
+-> Verificar cálculo de descontos
+	-> Ficha de procedimentos médicos
+	-> Ficha de procedimentos odontológicos
