@@ -582,7 +582,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("96");
     //posiciona horizontalmente
     $pdf->SetX("25");
-    $pdf->MultiCell(85,5,$proc,0);
+	if ($codconvenio == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("94");
@@ -594,8 +598,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("94");
     //posiciona horizontalmente
     $pdf->SetX("123");
-    if (empty($codconvenio)) {
-        $pdf->Cell(10,10,$valor,0,0);
+    if ($codconvenio == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v1=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor,0,0);
     }
@@ -607,7 +612,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("96");
     //posiciona horizontalmente
     $pdf->SetX("164");
-    $pdf->MultiCell(85,5,$proc,0);
+	if ($codconvenio == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("94");
@@ -619,8 +628,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("94");
     //posiciona horizontalmente
     $pdf->SetX("262");
-    if (empty($codconvenio)) {
-        $pdf->Cell(10,10,$valor,0,0);
+    if ($codconvenio == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v1=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor,0,0);
     }
@@ -636,7 +646,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("100");
     //posiciona horizontalmente
     $pdf->SetX("25");
-    $pdf->MultiCell(85,5,$proc2,0);
+	if ($codconvenio2 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc2,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("98");
@@ -648,8 +662,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("98");
     //posiciona horizontalmente
     $pdf->SetX("123");
-    if (empty($codconvenio2)) {
-        $pdf->Cell(10,10,$valor2,0,0);
+	if ($codconvenio2 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v2=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor2,0,0);
     }
@@ -661,7 +676,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("100");
     //posiciona horizontalmente
     $pdf->SetX("164");
-    $pdf->MultiCell(85,5,$proc2,0);
+	if ($codconvenio2 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc2,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("98");
@@ -673,8 +692,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("98");
     //posiciona horizontalmente
     $pdf->SetX("262");
-    if (empty($codconvenio2)) {
-        $pdf->Cell(10,10,$valor2,0,0);
+	if ($codconvenio2 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v2=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor2,0,0);
     }
@@ -690,7 +710,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("104");
     //posiciona horizontalmente
     $pdf->SetX("25" );
-    $pdf->MultiCell(85,5,$proc3,0);
+	if ($codconvenio3 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc3,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("102");
@@ -702,8 +726,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("102");
     //posiciona horizontalmente
     $pdf->SetX("123");
-    if (empty($codconvenio3)) {
-        $pdf->Cell(10,10,$valor3,0,0);
+	if ($codconvenio3 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v3=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor3,0,0);
     }
@@ -715,7 +740,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("104");
     //posiciona horizontalmente
     $pdf->SetX("164" );
-    $pdf->MultiCell(85,5,$proc3,0);
+	if ($codconvenio3 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc3,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("102");
@@ -727,8 +756,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("102");
     //posiciona horizontalmente
     $pdf->SetX("262");
-    if (empty($codconvenio3)) {
-        $pdf->Cell(10,10,$valor3,0,0);
+	if ($codconvenio3 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v3=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor3,0,0);
     }
@@ -744,7 +774,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("108");
     //posiciona horizontalmente
     $pdf->SetX("25" );
-    $pdf->MultiCell(85,5,$proc4,0);
+    if ($codconvenio4 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc4,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("106");
@@ -756,8 +790,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("106");
     //posiciona horizontalmente
     $pdf->SetX("123");
-    if (empty($codconvenio4)) {
-        $pdf->Cell(10,10,$valor4,0,0);
+    if ($codconvenio4 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v4=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor4,0,0);
     }
@@ -769,7 +804,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("108");
     //posiciona horizontalmente
     $pdf->SetX("164" );
-    $pdf->MultiCell(85,5,$proc4,0);
+    if ($codconvenio4 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc4,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("106");
@@ -781,8 +820,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("106");
     //posiciona horizontalmente
     $pdf->SetX("262");
-    if (empty($codconvenio4)) {
-        $pdf->Cell(10,10,$valor4,0,0);
+    if ($codconvenio4 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v4=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor4,0,0);
     }
@@ -798,7 +838,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("112");
     //posiciona horizontalmente
     $pdf->SetX("25" );
-    $pdf->MultiCell(85,5,$proc5,0);
+    if ($codconvenio5 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc5,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("110");
@@ -810,8 +854,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("110");
     //posiciona horizontalmente
     $pdf->SetX("123");
-    if (empty($codconvenio5)) {
-        $pdf->Cell(10,10,$valor5,0,0);
+    if ($codconvenio5 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v5=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor5,0,0);
     }
@@ -823,7 +868,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("112");
     //posiciona horizontalmente
     $pdf->SetX("164" );
-    $pdf->MultiCell(85,5,$proc5,0);
+    if ($codconvenio5 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc5,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("110");
@@ -835,8 +884,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("110");
     //posiciona horizontalmente
     $pdf->SetX("262");
-    if (empty($codconvenio5)) {
-        $pdf->Cell(10,10,$valor5,0,0);
+    if ($codconvenio5 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v5=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor5,0,0);
     }
@@ -852,7 +902,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("116");
     //posiciona horizontalmente
     $pdf->SetX("25" );
-    $pdf->MultiCell(85,5,$proc6,0);
+    if ($codconvenio6 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc6,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("114");
@@ -864,8 +918,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("114");
     //posiciona horizontalmente
     $pdf->SetX("123");
-    if (empty($codconvenio6)) {
-        $pdf->Cell(10,10,$valor6,0,0);
+    if ($codconvenio6 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v6=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor6,0,0);
     }
@@ -877,7 +932,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("116");
     //posiciona horizontalmente
     $pdf->SetX("164" );
-    $pdf->MultiCell(85,5,$proc6,0);
+    if ($codconvenio6 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc6,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("114");
@@ -889,8 +948,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("114");
     //posiciona horizontalmente
     $pdf->SetX("262");
-    if (empty($codconvenio6)) {
-        $pdf->Cell(10,10,$valor6,0,0);
+    if ($codconvenio6 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v6=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor6,0,0);
     }
@@ -906,7 +966,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("120");
     //posiciona horizontalmente
     $pdf->SetX("25" );
-    $pdf->MultiCell(85,5,$proc7,0);
+    if ($codconvenio7 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc7,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("118");
@@ -918,8 +982,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("118");
     //posiciona horizontalmente
     $pdf->SetX("123");
-    if (empty($codconvenio7)) {
-        $pdf->Cell(10,10,$valor7,0,0);
+    if ($codconvenio7 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v7=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor7,0,0);
     }
@@ -931,7 +996,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("120");
     //posiciona horizontalmente
     $pdf->SetX("164" );
-    $pdf->MultiCell(85,5,$proc7,0);
+    if ($codconvenio7 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc7,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("118");
@@ -943,8 +1012,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("118");
     //posiciona horizontalmente
     $pdf->SetX("262");
-    if (empty($codconvenio7)) {
-        $pdf->Cell(10,10,$valor7,0,0);
+    if ($codconvenio7 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v7=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor7,0,0);
     }
@@ -960,7 +1030,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("124");
     //posiciona horizontalmente
     $pdf->SetX("25" );
-    $pdf->MultiCell(85,5,$proc8,0);
+    if ($codconvenio8 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc8,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("122");
@@ -972,8 +1046,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("122");
     //posiciona horizontalmente
     $pdf->SetX("123");
-    if (empty($codconvenio8)) {
-        $pdf->Cell(10,10,$valor8,0,0);
+	if ($codconvenio8 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v8=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor8,0,0);
     }
@@ -985,7 +1060,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("124");
     //posiciona horizontalmente
     $pdf->SetX("164" );
-    $pdf->MultiCell(85,5,$proc8,0);
+    if ($codconvenio8 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc8,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("122");
@@ -997,8 +1076,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("122");
     //posiciona horizontalmente
     $pdf->SetX("262");
-    if (empty($codconvenio8)) {
-        $pdf->Cell(10,10,$valor8,0,0);
+	if ($codconvenio8 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v8=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor8,0,0);
     }
@@ -1014,7 +1094,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("128");
     //posiciona horizontalmente
     $pdf->SetX("25" );
-    $pdf->MultiCell(85,5,$proc9,0);
+    if ($codconvenio9 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc9,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("126");
@@ -1026,8 +1110,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("126");
     //posiciona horizontalmente
     $pdf->SetX("123");
-    if (empty($codconvenio9)) {
-        $pdf->Cell(10,10,$valor9,0,0);
+    if ($codconvenio9 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v9=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor9,0,0);
     }
@@ -1039,7 +1124,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("128");
     //posiciona horizontalmente
     $pdf->SetX("164" );
-    $pdf->MultiCell(85,5,$proc9,0);
+    if ($codconvenio9 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc9,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("126");
@@ -1051,8 +1140,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("126");
     //posiciona horizontalmente
     $pdf->SetX("262");
-    if (empty($codconvenio9)) {
-        $pdf->Cell(10,10,$valor9,0,0);
+    if ($codconvenio9 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v9=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor9,0,0);
     }
@@ -1068,7 +1158,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("132");
     //posiciona horizontalmente
     $pdf->SetX("25" );
-    $pdf->MultiCell(85,5,$proc10,0);
+	if ($codconvenio10 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc10,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("130");
@@ -1080,8 +1174,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("130");
     //posiciona horizontalmente
     $pdf->SetX("123");
-    if (empty($codconvenio10)) {
-        $pdf->Cell(10,10,$valor10,0,0);
+    if ($codconvenio10 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v10=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor10,0,0);
     }
@@ -1093,7 +1188,11 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("132");
     //posiciona horizontalmente
     $pdf->SetX("164" );
-    $pdf->MultiCell(85,5,$proc10,0);
+	if ($codconvenio10 == " ") {
+    	$pdf->MultiCell(85,5," ",0);
+    } else {
+    	$pdf->MultiCell(85,5,$proc10,0);
+    }
     //$pdf->Cell(80);
     //posiciona verticalmente
     $pdf->SetY("130");
@@ -1105,8 +1204,9 @@ define('FPDF_FONTPATH','fpdf16/font/');
     $pdf->SetY("130");
     //posiciona horizontalmente
     $pdf->SetX("262");
-    if (empty($codconvenio10)) {
-        $pdf->Cell(10,10,$valor10,0,0);
+    if ($codconvenio10 == " ") {
+        $pdf->Cell(10,10," ",0,0);
+        $v10=0;
     } else {
         $pdf->Cell(10,10,'R$'.$valor10,0,0);
     }
