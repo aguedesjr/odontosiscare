@@ -112,7 +112,7 @@
     $resultadoc = mysql_query($sqlc);
     $resultc = mysql_fetch_array($resultadoc);
     
-    $cod = $aux1.($resultc[0]+1).$aux2;
+    $cod = $aux1.$aux2.($resultc[0]+1).$aux2;
     
     ?>
 
@@ -142,7 +142,7 @@
                     <div class="frames">
                         <div class="frame" id="_page_1">
                             <label>Código</label>
-                            <div class="input-control text size2" id="cod" data-role="input-control">
+                            <div class="input-control text size4" id="cod" data-role="input-control">
                                 <input type="text" id="codigo" readonly="readonly" name="codigo" value="<?echo $cod;?>">
                             </div>
                             <label>Nome</label>
