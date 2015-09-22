@@ -5,7 +5,12 @@
                     <ul>
                         <li class="title"><center>Menu</center></li>
                         <li class=""><a href="inicio.php"><i class="icon-home"></i>Inicio</a></li>
-                        <li class="stick bg-red"><a href="agenda.php"><i class="icon-calendar"></i>Agenda</a></li>
+                        <li class="stick bg-red"><a class="dropdown-toggle" href="#"><i class="icon-calendar"></i>Agenda</a>
+                        	<ul class="dropdown-menu" data-role="dropdown">
+                                <li><a href="agenda.php"><i class="icon-file"></i>Novo</a></li>
+                                <li><a href="buscarpacienteagenda.php"><i class="icon-search"></i>Buscar</a></li>
+                            </ul>
+                        </li>
                         <li class="stick bg-orange"><a class="dropdown-toggle" href="#"><i class="icon-user-2"></i>Pacientes</a>
                             <ul class="dropdown-menu" data-role="dropdown">
                                 <li><a href="cadastrarpaciente.php"><i class="icon-file"></i>Cadastrar</a></li>
