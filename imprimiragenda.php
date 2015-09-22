@@ -94,13 +94,13 @@ define('FPDF_FONTPATH','fpdf16/font/');
 	$pdf->Cell(50,10,'                                                                                                                                                                  ',0,0);
 	$pdf->Ln(7);
 	$pdf->SetFont('Arial','',12);
-	$pdf->Cell(50);
+	$pdf->Cell(5);
 	while ($linhash = mysql_fetch_array($resultadoh, MYSQL_NUM)){
 		$pdf->Cell(50,10,utf8_decode('Nome: ').$linhash[0],0,0);
-		$pdf->Cell(15);
+		$pdf->Cell(95);
 		$pdf->Cell(50,10,utf8_decode('Horário: ').$linhash[1],0,0);
 		$pdf->Ln(7);
-		$pdf->Cell(50);
+		$pdf->Cell(5);
 	};
 	
 	$pdf->Output("relatorioprofissional.pdf",D); //Gera o pdf e permite o download
