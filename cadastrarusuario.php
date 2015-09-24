@@ -55,7 +55,7 @@
                             <td bgcolor="#FDFDFD">
                                 <label>Usuário</label>
                                 <div class="input-control text size2" data-role="input-control">
-                                    <input type="text" id="user" name="user" placeholder="Login">
+                                    <input type="text" id="login" name="login" placeholder="Login">
                                 </div></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td><td bgcolor="#FDFDFD"></td>
                                 <td bgcolor="#FDFDFD">
                                 <label>Senha</label>
