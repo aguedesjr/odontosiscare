@@ -3,7 +3,7 @@
 
 <? $login = $_SESSION['login']; ?>
 
-<<style type="text/css">
+<style type="text/css">
 <!--
 	body {
 		background-image: url("imagens/Wallpaper1.jpg");
